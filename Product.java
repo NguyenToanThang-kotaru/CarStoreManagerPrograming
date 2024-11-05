@@ -1,80 +1,104 @@
 package Vehicle;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-class product {
+public class Product {
     Scanner sc = new Scanner(System.in);
     private String Name;
     private String Date;
     private int price;
     private String id;
     private String hangxe;
+    private static ArrayList<String> checkid = new ArrayList<>();
 
-    public product() {
+    public Product() {
         Name = "product";
         price = 0;
-        id ="0";
-        hangxe="Honda";
-        Date="2000";
+        id = "0";
+        hangxe = "Honda";
+        Date = "2000";
     }
 
-    public product(String id, String hangxe,String Name,String Date, int price) 
-    {
+    public Product(String id, String hangxe, String Name, String Date, int price) {
         this.id = id;
-        this.hangxe=hangxe;
+        this.hangxe = hangxe;
         this.Name = Name;
         this.price = price;
-        this.Date=Date;
+        this.Date = Date;
+    }
+
+    String getID() {
+        return id;
     }
 
     public void outputProduct() {
-        System.out.print("ID: ");
-        System.out.println(id);
-        System.out.print("Brand: ");
-        System.out.println(hangxe);
-        System.out.print("Name: ");
-        System.out.println(Name);
-        System.out.print("Date: ");
-        System.out.println(Date);
-        System.out.print("Price: ");
-        System.out.println(price);
+        System.out.println("ID: " + id);
+        System.out.println("Hãng xe: " + hangxe);
+        System.out.println("Tên xe: " + Name);
+        System.out.println("Năm sản xuất: " + Date);
+        System.out.println("Giá: " + price);
     }
 
     public void inputProduct() {
-        System.out.print("ID: ");
-        id = sc.nextLine();
-        System.out.print("Dong xe: ");
+        while (true) {
+            System.out.print("ID: ");
+            id = sc.nextLine();
+            if (checkid.contains(id)) {
+                System.out.println("Trùng ID! Vui lòng nhập lại.");
+            } else {
+                checkid.add(id);
+                break;
+            }
+        }
+
+        System.out.print("Hãng xe: ");
         hangxe = sc.nextLine();
-        System.out.print("Ten xe: ");
+        System.out.print("Tên xe: ");
         Name = sc.nextLine();
-        System.out.print("Nam san xuat: ");
+        System.out.print("Năm sản xuất: ");
         Date = sc.nextLine();
-        System.out.print("Gia tien: ");
-        price = sc.nextInt();
+        System.out.print("Giá: ");
         
+        while (true) {
+            try {
+                price = Integer.parseInt(sc.nextLine());
+                if (price < 0) {
+                    System.out.println("Giá không thể âm. Vui lòng nhập lại:");
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Giá không hợp lệ. Vui lòng nhập lại:");
+            }
+        }
     }
 }
 
-class Car extends product{
-    String socho;
-    public Car(){
+class Car extends Product {
+    private String socho;
+
+    public Car() {
         super();
-        socho="4 cho";
-    }    
-    public Car(String id, String hangxe,String Name,String Date, int price,String socho)
-    {
-        super(id, hangxe,Name,Date,price);
-        this.socho=socho;
+        socho = "4 chỗ";
     }
-    public void inputCar(){
+
+    public Car(String id, String hangxe, String Name, String Date, int price, String socho) {
+        super(id, hangxe, Name, Date, price);
+        this.socho = socho;
+    }
+
+    public String getIDCar() {
+        return super.getID();
+    }
+
+    public void inputCar() {
         super.inputProduct();
-        System.out.print("So cho: ");
-        sc.nextLine();
+        System.out.print("Số chỗ: ");
         socho = sc.nextLine();
     }
-    public void outputCar(){
+
+    public void outputCar() {
         super.outputProduct();
-        System.out.print("So cho: ");
-        System.out.println(socho);
+        System.out.println("Số chỗ: " + socho);
     }
 }
-
