@@ -160,7 +160,7 @@
 											"top": 424,
 											"width": 214.1796875,
 											"height": 13,
-											"text": "-shopProducts: ProductList",
+											"text": "#shopProducts: ProductList",
 											"horizontalAlignment": 0
 										}
 									],
@@ -405,7 +405,7 @@
 											"top": 422,
 											"width": 214.1796875,
 											"height": 13,
-											"text": "-shopOrders: OrderList",
+											"text": "#shopOrders: OrderList",
 											"horizontalAlignment": 0
 										}
 									],
@@ -631,7 +631,7 @@
 											"top": 422,
 											"width": 214.1796875,
 											"height": 13,
-											"text": "-shopCustomers: CustomerList",
+											"text": "#shopCustomers: CustomerList",
 											"horizontalAlignment": 0
 										},
 										{
@@ -895,7 +895,7 @@
 											"top": 422,
 											"width": 214.1796875,
 											"height": 13,
-											"text": "-shopEmployees: EmployeeList",
+											"text": "#shopEmployees: EmployeeList",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1177,6 +1177,24 @@
 											"height": 13,
 											"text": "-date: String",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGTQiSV+tdVbIw=",
+											"_parent": {
+												"$ref": "AAAAAAGTDjbdBa4qPEc="
+											},
+											"model": {
+												"$ref": "AAAAAAGTQiSV39dSTDA="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 197,
+											"top": 978,
+											"width": 214.1796875,
+											"height": 13,
+											"text": "+price: long",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
@@ -1184,7 +1202,7 @@
 									"left": 192,
 									"top": 913,
 									"width": 224.1796875,
-									"height": 68
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -1208,7 +1226,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 986,
+											"top": 1001,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+input()",
@@ -1226,7 +1244,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1001,
+											"top": 1016,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+display()",
@@ -1244,7 +1262,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1016,
+											"top": 1031,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+getID(): String",
@@ -1262,7 +1280,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1031,
+											"top": 1046,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+getBrand(): String",
@@ -1280,7 +1298,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1046,
+											"top": 1061,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+getName(): String",
@@ -1298,7 +1316,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1061,
+											"top": 1076,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+getDate(): String",
@@ -1316,7 +1334,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1076,
+											"top": 1091,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+getColor(): String",
@@ -1334,7 +1352,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1091,
+											"top": 1106,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+getPrice(): long",
@@ -1352,7 +1370,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1106,
+											"top": 1121,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+getQuantity(): int",
@@ -1370,7 +1388,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1121,
+											"top": 1136,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+setPrice(price: long)",
@@ -1388,7 +1406,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1136,
+											"top": 1151,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+setQuantity(para: int)",
@@ -1406,7 +1424,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1151,
+											"top": 1166,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+setID(ID: String)",
@@ -1424,7 +1442,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1166,
+											"top": 1181,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+setBrand(brand: String)",
@@ -1442,7 +1460,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1181,
+											"top": 1196,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+setName(name: String)",
@@ -1460,7 +1478,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1196,
+											"top": 1211,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+setDate(date: String)",
@@ -1478,7 +1496,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1211,
+											"top": 1226,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+setColor(color: String)",
@@ -1496,7 +1514,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1226,
+											"top": 1241,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+setPrice(price: long)",
@@ -1514,7 +1532,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 197,
-											"top": 1241,
+											"top": 1256,
 											"width": 214.1796875,
 											"height": 13,
 											"text": "+setQuantity(quantity: int)",
@@ -1524,7 +1542,7 @@
 									"font": "Arial;13;0",
 									"parentStyle": true,
 									"left": 192,
-									"top": 981,
+									"top": 996,
 									"width": 224.1796875,
 									"height": 278
 								},
@@ -4314,7 +4332,6 @@
 											"top": 579,
 											"width": 214.1796875,
 											"height": 13,
-											"underline": true,
 											"text": "-length: int",
 											"horizontalAlignment": 0
 										}
@@ -4351,7 +4368,6 @@
 											"top": 602,
 											"width": 214.1796875,
 											"height": 13,
-											"underline": true,
 											"text": "+getLength(): int",
 											"horizontalAlignment": 0
 										},
@@ -4776,7 +4792,6 @@
 											"top": 579,
 											"width": 214.1796875,
 											"height": 13,
-											"underline": true,
 											"text": "-length: int",
 											"horizontalAlignment": 0
 										}
@@ -4813,7 +4828,6 @@
 											"top": 602,
 											"width": 214.1796875,
 											"height": 13,
-											"underline": true,
 											"text": "+getLength(): int",
 											"horizontalAlignment": 0
 										},
@@ -5337,7 +5351,6 @@
 											"top": 579,
 											"width": 214.1796875,
 											"height": 13,
-											"underline": true,
 											"text": "-length: int",
 											"horizontalAlignment": 0
 										}
@@ -5374,7 +5387,6 @@
 											"top": 602,
 											"width": 214.1796875,
 											"height": 13,
-											"underline": true,
 											"text": "+getLength(): int",
 											"horizontalAlignment": 0
 										},
@@ -7023,7 +7035,6 @@
 											"top": 581,
 											"width": 214.1796875,
 											"height": 13,
-											"underline": true,
 											"text": "-length: int",
 											"horizontalAlignment": 0
 										}
@@ -7060,7 +7071,6 @@
 											"top": 604,
 											"width": 214.1796875,
 											"height": 13,
-											"underline": true,
 											"text": "+getLength(): int",
 											"horizontalAlignment": 0
 										},
@@ -9058,6 +9068,15 @@
 							"name": "date",
 							"visibility": "private",
 							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGTQiSV39dSTDA=",
+							"_parent": {
+								"$ref": "AAAAAAGTDjbdAa4ipUk="
+							},
+							"name": "price",
+							"type": "long"
 						}
 					],
 					"operations": [
@@ -10600,7 +10619,6 @@
 							},
 							"name": "length",
 							"visibility": "private",
-							"isStatic": true,
 							"type": "int"
 						}
 					],
@@ -10612,7 +10630,6 @@
 								"$ref": "AAAAAAGTDsaRLRnXB9U="
 							},
 							"name": "getLength",
-							"isStatic": true,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -10855,7 +10872,6 @@
 							},
 							"name": "length",
 							"visibility": "private",
-							"isStatic": true,
 							"type": "int"
 						}
 					],
@@ -10867,7 +10883,6 @@
 								"$ref": "AAAAAAGTDsj+liU+i/U="
 							},
 							"name": "getLength",
-							"isStatic": true,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -11050,7 +11065,6 @@
 							},
 							"name": "length",
 							"visibility": "private",
-							"isStatic": true,
 							"type": "int"
 						}
 					],
@@ -11062,7 +11076,6 @@
 								"$ref": "AAAAAAGTG0PHc9u2BFI="
 							},
 							"name": "getLength",
-							"isStatic": true,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -11572,7 +11585,6 @@
 							},
 							"name": "length",
 							"visibility": "private",
-							"isStatic": true,
 							"type": "int"
 						}
 					],
@@ -11584,7 +11596,6 @@
 								"$ref": "AAAAAAGTHbPOll+aF5c="
 							},
 							"name": "getLength",
-							"isStatic": true,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -11821,7 +11832,7 @@
 								"$ref": "AAAAAAGTHh46lcPGl+M="
 							},
 							"name": "shopProducts",
-							"visibility": "private",
+							"visibility": "protected",
 							"type": {
 								"$ref": "AAAAAAGTDsaRLRnXB9U="
 							}
@@ -11861,7 +11872,7 @@
 								"$ref": "AAAAAAGTIL3+Joo3Gfo="
 							},
 							"name": "shopOrders",
-							"visibility": "private",
+							"visibility": "protected",
 							"type": {
 								"$ref": "AAAAAAGTDsj+liU+i/U="
 							}
@@ -11893,7 +11904,7 @@
 								"$ref": "AAAAAAGTIL4iLYs5X2Q="
 							},
 							"name": "shopCustomers",
-							"visibility": "private",
+							"visibility": "protected",
 							"type": {
 								"$ref": "AAAAAAGTG0PHc9u2BFI="
 							}
@@ -11943,7 +11954,7 @@
 								"$ref": "AAAAAAGTIL47fYvhYT0="
 							},
 							"name": "shopEmployees",
-							"visibility": "private",
+							"visibility": "protected",
 							"type": {
 								"$ref": "AAAAAAGTHbPOll+aF5c="
 							}
