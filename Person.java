@@ -46,16 +46,15 @@ public class Person {
         Scanner reader=new Scanner(System.in);
         System.out.print("Nhập tên: ");
         this.name=reader.nextLine();
-        System.out.print("Nhập địa chỉ ");
+        System.out.print("Nhập địa chỉ: ");
         this.address=reader.nextLine();
-        System.out.print("Nhâp số điện thoại ");
+        System.out.print("Nhâp số điện thoại: ");
         this.phone=reader.nextLine();
-        System.out.print("Nhập số tuổi ");
+        System.out.print("Nhập số tuổi: ");
         this.age=Short.parseShort(reader.nextLine());
-        reader.close();
+        
     }
-    public void output(){
-        System.out.println("Thông tin người dùng");
+    public void display(){
         System.out.println("Tên: "+getname());
         System.out.println("Địa chỉ: "+getaddress());
         System.out.println("Số điện thoại: "+getphone());
