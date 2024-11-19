@@ -1,4 +1,4 @@
-package Vehicle;
+package CarStoreManagerPrograming;
 import java.util.ArrayList;
 import java.util.Scanner;
 
