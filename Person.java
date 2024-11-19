@@ -5,6 +5,12 @@ public class Person {
     private String address;
     private String phone;
     private short  age;
+    public Person(){
+        name=" ";
+        address=" ";
+        phone=" ";
+        age=0;
+    }
 
     public Person(String name, String address, String phone, short age){
         this.name=name;
@@ -36,7 +42,7 @@ public class Person {
     public void setage(Short age){
         this.age=age;
     }
-    public void Input(){
+    public void input(){
         Scanner reader=new Scanner(System.in);
         System.out.print("Nhập tên: ");
         this.name=reader.nextLine();
@@ -46,8 +52,9 @@ public class Person {
         this.phone=reader.nextLine();
         System.out.print("Nhập số tuổi ");
         this.age=Short.parseShort(reader.nextLine());
+        reader.close();
     }
-    public void Output(){
+    public void output(){
         System.out.println("Thông tin người dùng");
         System.out.println("Tên: "+getname());
         System.out.println("Địa chỉ: "+getaddress());
