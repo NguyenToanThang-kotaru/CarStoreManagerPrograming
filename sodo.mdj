@@ -65,7 +65,7 @@
 											"top": 399,
 											"width": 214.1796875,
 											"height": 13,
-											"text": "ProducsManager"
+											"text": "ProductManager"
 										},
 										{
 											"_type": "LabelView",
@@ -11800,7 +11800,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "ProducsManager",
+					"name": "ProductManager",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
