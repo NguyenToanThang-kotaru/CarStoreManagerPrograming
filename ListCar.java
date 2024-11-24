@@ -1,4 +1,3 @@
-package  CarStoreManagerPrograming;
 import java.util.Scanner;
 
 public class ListCar {
@@ -7,7 +6,7 @@ public class ListCar {
     public ListCar(){
         listCars = new Car[0];
     }
-    public ListCar( Car[] listCars){
+    public ListCar(Car[] listCars){
         this.listCars = new Car[listCars.length];     
         for(int i=0;i<=listCars.length;i++)
         {
