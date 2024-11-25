@@ -3,61 +3,63 @@ import java.util.Scanner;
 
 public class Product {
     Scanner sc = new Scanner(System.in);
-    private String Name;
-    private String Date;
+    private String ID;
+    private String brand;
+    private String name;
+    private String date;
     private int price;
-    private String id;
-    private String hangxe;
-    private static ArrayList<String> checkid = new ArrayList<>();
+    private String color;
+    private int quantity;
+    private static ArrayList<String> checkID = new ArrayList<>();
 
     public Product() {
-        Name = "product";
+        ID = "0";
+        brand = "Honda";
+        name = "product";
+        date = "2000";
         price = 0;
-        id = "0";
-        hangxe = "Honda";
-        Date = "2000";
+        color = "white";
+        quantity = 0;
     }
 
-    public Product(String id, String hangxe, String Name, String Date, int price) {
-        this.id = id;
-        this.hangxe = hangxe;
-        this.Name = Name;
+    public Product(String ID, String brand, String name, String date, int price, String color, int quantity) {
+        this.ID = ID;
+        this.brand = brand;
+        this.name = name;
+        this.date = date;
         this.price = price;
-        this.Date = Date;
+        this.color = color;
+        this.quantity = quantity;
     }
-
-    String getID() {
-        return id;
-    }
-
-    public void outputProduct() {
-        System.out.println("ID: " + id);
-        System.out.println("Hãng xe: " + hangxe);
-        System.out.println("Tên xe: " + Name);
-        System.out.println("Năm sản xuất: " + Date);
+    public void display() {
+        System.out.println("ID: " + ID);
+        System.out.println("Hãng xe: " + brand);
+        System.out.println("Tên xe: " + name);
+        System.out.println("Năm sản xuất: " + date);
         System.out.println("Giá: " + price);
+        System.out.println("Màu: " + color);
+        System.out.println("Số lượng: " + quantity);
     }
-
-    public void inputProduct() {
+  
+    public void input() {
         while (true) {
             System.out.print("ID: ");
-            id = sc.nextLine();
-            if (checkid.contains(id)) {
+            ID = sc.nextLine();
+            if (checkID.contains(ID)) {
                 System.out.println("Trùng ID! Vui lòng nhập lại.");
             } else {
-                checkid.add(id);
+                checkID.add(ID);
                 break;
             }
         }
 
         System.out.print("Hãng xe: ");
-        hangxe = sc.nextLine();
+        brand = sc.nextLine();
         System.out.print("Tên xe: ");
-        Name = sc.nextLine();
+        name = sc.nextLine();
         System.out.print("Năm sản xuất: ");
-        Date = sc.nextLine();
+        date = sc.nextLine();
         System.out.print("Giá: ");
-        
         while (true) {
             try {
                 price = Integer.parseInt(sc.nextLine());
@@ -70,5 +72,66 @@ public class Product {
                 System.out.println("Giá không hợp lệ. Vui lòng nhập lại:");
             }
         }
+        System.out.print("Màu: ");
+        color = sc.nextLine();
+        System.out.print("Số lượng: ");
+        quantity = sc.nextInt();
+
+    }
+// ---------------------------------------------Get
+    public String getID() {
+        return ID;
+    }
+
+    public String getBrand() {
+        return brand;
+    }    
+    public String getName() {
+        return name;
+    }    
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+// ---------------------------------------------Set
+    public void setID(String ID) {
+        this.ID=ID;
+    }
+
+    public void setBrand(String brand) {
+        this.brand=brand;
+    }   
+
+    public void setName(String name) {
+        this.name=name;
+    }   
+
+    public void setDate(String date) {
+        this.date=date;
+    } 
+
+    public void setColor(String color) {
+        this.color=color;
+    }
+
+    public void setPrice(int price) {
+        this.price=price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity=quantity;
     }
 }
+

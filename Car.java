@@ -1,28 +1,32 @@
 public class Car extends Product {
-    private String socho;
+    private byte seat;
 
     public Car() {
         super();
-        socho = "4 chỗ";
+        seat = 4;
     }
 
-    public Car(String id, String hangxe, String Name, String Date, int price, String socho) {
-        super(id, hangxe, Name, Date, price);
-        this.socho = socho;
-    }
-
-    public String getIDCar() {
-        return super.getID();
+    public Car(String ID, String brand, String name, String date, int price, String color, int quantity, byte seat) {
+        super(ID,brand,name,date, price,color,quantity);
+        this.seat = seat;
     }
 
     public void inputCar() {
-        super.inputProduct();
+        super.input();
         System.out.print("Số chỗ: ");
-        socho = sc.nextLine();
+        seat = sc.nextByte();
     }
 
-    public void outputCar() {
-        super.outputProduct();
-        System.out.println("Số chỗ: " + socho);
+    public void display() {
+        super.display();
+        System.out.println("Số chỗ: " + seat);
+    }
+    
+    public byte getSeat(){
+        return seat;
+    }
+    
+    public void setSeat(byte seat){
+        this.seat=seat;
     }
 }

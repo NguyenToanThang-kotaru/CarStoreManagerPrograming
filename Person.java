@@ -52,7 +52,8 @@ public class Person {
         this.phone=reader.nextLine();
         System.out.print("Nhập số tuổi: ");
         this.age=Short.parseShort(reader.nextLine());
-        
+        reader.close();
+        reader.close();
     }
     public void display(){
         System.out.println("Tên: "+getname());
