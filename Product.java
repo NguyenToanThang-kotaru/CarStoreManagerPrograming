@@ -7,7 +7,7 @@ public class Product {
     private String brand;
     private String name;
     private String date;
-    private int price;
+    private long price;
     private String color;
     private int quantity;
     private static ArrayList<String> checkID = new ArrayList<>();
@@ -22,7 +22,7 @@ public class Product {
         quantity = 0;
     }
 
-    public Product(String ID, String brand, String name, String date, int price, String color, int quantity) {
+    public Product(String ID, String brand, String name, String date, long price, String color, int quantity) {
         this.ID = ID;
         this.brand = brand;
         this.name = name;
@@ -31,6 +31,18 @@ public class Product {
         this.color = color;
         this.quantity = quantity;
     }
+
+    public Product(Product x)
+    {
+        this.ID = x.ID;
+        this.brand = x.brand;
+        this.name = x.name;
+        this.date = x.date;
+        this.price = x.price;
+        this.color = x.color;
+        this.quantity = x.quantity;
+    }
+
     public void display() {
         System.out.println("ID: " + ID);
         System.out.println("Hãng xe: " + brand);
@@ -98,7 +110,7 @@ public class Product {
         return color;
     }
 
-    public int getPrice() {
+    public long getPrice() {
         return price;
     }
 
@@ -126,7 +138,7 @@ public class Product {
         this.color=color;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(long price) {
         this.price=price;
     }
 

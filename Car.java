@@ -6,12 +6,12 @@ public class Car extends Product {
         seat = 4;
     }
 
-    public Car(String ID, String brand, String name, String date, int price, String color, int quantity, byte seat) {
+    public Car(String ID, String brand, String name, String date, long price, String color, int quantity, byte seat) {
         super(ID,brand,name,date, price,color,quantity);
         this.seat = seat;
     }
 
-    public void inputCar() {
+    public void input() {
         super.input();
         System.out.print("Số chỗ: ");
         seat = sc.nextByte();

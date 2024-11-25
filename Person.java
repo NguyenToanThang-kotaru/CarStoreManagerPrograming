@@ -11,6 +11,12 @@ public class Person {
         phone=" ";
         age=0;
     }
+    public Person(Person person){
+        this.name=person.name;
+        this.address=person.address;
+        this.phone=person.phone;
+        this.age=person.age;
+    }
 
     public Person(String name, String address, String phone, short age){
         this.name=name;
@@ -18,28 +24,28 @@ public class Person {
         this.phone=phone;
         this.age=age;
     }
-    public String getname(){
+    public String getName(){
         return name;
     }
-    public void setname(String name){
+    public void setName(String name){
         this.name=name;
     }
-    public String getaddress(){
+    public String getAddress(){
         return address;
     }
-    public void setaddress(String address){
+    public void setAddress(String address){
         this.address=address;
     }
-    public String getphone(){
+    public String getPhone(){
         return phone;
     }
-    public void setphone(String phone){
+    public void setPhone(String phone){
         this.phone=phone;
     }
-    public Short getage(){
+    public Short getAge(){
         return age;
     }
-    public void setage(Short age){
+    public void setAge(short age){
         this.age=age;
     }
     public void input(){
@@ -56,10 +62,10 @@ public class Person {
         reader.close();
     }
     public void display(){
-        System.out.println("Tên: "+getname());
-        System.out.println("Địa chỉ: "+getaddress());
-        System.out.println("Số điện thoại: "+getphone());
-        System.out.println("Tuổi: "+getage());
+        System.out.println("Tên: "+name);
+        System.out.println("Địa chỉ: "+address);
+        System.out.println("Số điện thoại: "+phone);
+        System.out.println("Tuổi: "+age);
     }
     @Override
     public String toString() {
