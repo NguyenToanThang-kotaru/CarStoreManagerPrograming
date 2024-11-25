@@ -11,6 +11,12 @@ public class Person {
         phone=" ";
         age=0;
     }
+    public Person(Person person){
+        this.name=person.name;
+        this.address=person.address;
+        this.phone=person.phone;
+        this.age=person.age;
+    }
 
     public Person(String name, String address, String phone, short age){
         this.name=name;
