@@ -1,7 +1,7 @@
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.BufferedReader;
-import java.util.*;
+import java.util.Scanner;
 
 public class CustomerManager {
     Scanner sc = new Scanner(System.in);
@@ -9,8 +9,10 @@ public class CustomerManager {
     
     public CustomerManager() {
         shopCustomers = new CustomerList();
+        this.readFromFile();
     }
     
+
     public void menu() {
         boolean exit = false;
         do{
@@ -64,5 +66,37 @@ public class CustomerManager {
                     break;
             }
         } while(!exit);
+    }
+
+    public void readFromFile(){
+        try {
+            BufferedReader input = new BufferedReader(new FileReader("./database/customers.txt"));
+            String line = input.readLine();
+            while (line != null) {
+                System.out.println(line);
+                String[] arr = line.split(",");
+                line = input.readLine();
+                System.out.println(line);
+            }
+
+            input.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+            
+    }
+
+    public void writeToFile(){
+        Customer[] customers = shopCustomers.getCustomers();
+        try {
+            FileWriter fw = new FileWriter("./database/customers.txt");
+            for(Customer customer : customers){
+                fw.write(customer.toString());
+            }
+            fw.write("\r\n");
+            fw.close();
+            } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
