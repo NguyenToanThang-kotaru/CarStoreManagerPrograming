@@ -19,10 +19,30 @@ public class ProductList {
     }
     public void input(){
         System.out.print("Nhập số lượng sản phẩm: ");
-        lenght = sc.nextInt();
+        lenght = Integer.parseInt(sc.nextLine());
+        products = new Product[lenght];
+
         for(int i=0;i<lenght;i++)
         {
-            products[i]=new Product();
+            boolean check = false;
+            do{
+                System.out.println("1: Car");
+                System.out.println("2: Motorbike");
+                String loaixe;
+                loaixe = sc.nextLine();
+                switch(loaixe){
+                    case "1":
+                        products[i] = new Car();
+                        check = true;
+                        break;
+                    case "2":
+                        products[i] = new Motorbike();
+                        check = true;
+                        break;
+                    default:
+                        break;
+                }
+            } while(!check);
             products[i].input();
         }
     }
@@ -35,9 +55,28 @@ public class ProductList {
 
     public void add(){
         products = Arrays.copyOf(products, lenght+1);
-        products[lenght] = new Product();
-        products[lenght].input();
-        lenght++;
+        boolean check = false;
+            do{
+                System.out.println("Xe bạn muốn chọn để thêm vào: ");
+                System.out.println("1: Car");
+                System.out.println("2: Motorbike");
+                String loaixe;
+                loaixe = sc.nextLine();
+                switch(loaixe){
+                    case "1":
+                        products[lenght] = new Car();
+                        check = true;
+                        break;
+                    case "2":
+                        products[lenght] = new Motorbike();
+                        check = true;
+                        break;
+                    default:
+                        break;
+                }
+            } while(!check);
+            products[lenght].input();
+            lenght++;
     }
 
     public void add(Product x){
@@ -99,7 +138,12 @@ public class ProductList {
     // }
         
    
-
+    // public static void main(String[] args) {
+    //     ProductList a = new ProductList();
+    //     a.add();
+    //     a.add();
+    //     a.display();
+    // }
 
 
 }
