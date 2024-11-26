@@ -19,6 +19,7 @@ public class Customer extends Person {
         this.ID = customer.ID;
     }
 
+    @Override
     public void input() {
         super.input();
         System.out.print("ID khách hàng: ");
@@ -43,6 +44,7 @@ public class Customer extends Person {
         this.ID = ID;
     }
 
+    @Override
     public String toString(){
         return "Customer," + ID + "," + name + "," + address + "," + phone + "," + age;
     }

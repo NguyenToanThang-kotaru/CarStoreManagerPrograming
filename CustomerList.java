@@ -39,9 +39,6 @@ public class CustomerList {
     }
     
     public void add() {
-        Customer newCustomer = new Customer();
-        newCustomer.input();
-        
         customers = Arrays.copyOf(customers, length + 1);
         customers[length] = new Customer();
         customers[length].input();
@@ -161,5 +158,9 @@ public class CustomerList {
 
     public int getLength() {
         return length;
+    }
+
+    public Customer[] getCustomers(){
+        return this.customers;
     }
 }
