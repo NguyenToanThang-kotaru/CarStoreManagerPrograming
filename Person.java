@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Person {
-    private String name;
-    private String address;
-    private String phone;
-    private short  age;
+public abstract class Person {
+    protected String name;
+    protected String address;
+    protected String phone;
+    protected short  age;
     public Person(){
         name=" ";
         address=" ";
@@ -67,13 +67,8 @@ public class Person {
         System.out.println("Số điện thoại: "+phone);
         System.out.println("Tuổi: "+age);
     }
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", age=" + age +
-                '}';
-    }
+    
+    public abstract String toString() ;
+        
+    
 }   
