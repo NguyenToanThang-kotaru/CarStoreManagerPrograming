@@ -85,9 +85,11 @@ public class ProductList {
     }
 
     public void add(Product x) {
-        products = Arrays.copyOf(products, lenght + 1);
-        products[lenght] = new Product(x);
-        lenght++;
+        if (x instanceof Car) {
+            products[lenght] = new Car();
+        }
+        else
+            products[lenght] = new Motorbike();
     }
 
     public void delete() {
@@ -120,61 +122,12 @@ public class ProductList {
 
     public void edit(String id) {
         Product product = search(id);
-        if(product!=null)
-        {
-            boolean exit = false;
-            do {
-                System.out.println("---Thông tin sản phẩm hiện tại---");
-                product.display();
-                System.out.println("1: Sửa ID");
-                System.out.println("2: Sửa hãng");
-                System.out.println("3: Sửa tên");
-                System.out.println("4: Sửa năm sản xuất");
-                System.out.println("5: Sửa giá");
-                System.out.println("exit: Thoát");
-                String luachon = "";
-                System.out.print("Nhập lựa chọn: ");
-                luachon = sc.nextLine();
-                switch (luachon) {
-                    case "1":
-                        System.out.print("Nhập ID mới: ");
-                        String newID = sc.nextLine();
-                        product.setID(newID);
-                        break;
-                    case "2":
-                        System.out.print("Nhập hãng mới: ");
-                        String newBrand = sc.nextLine();
-                        product.setBrand(newBrand);
-                        break;
-                    case "3":
-                        System.out.print("Nhập tên mới: ");
-                        String newName = sc.nextLine();
-                        product.setName(newName);
-                        break;
-                    case "4":
-                        System.out.print("Nhập năm sản xuất mới: ");
-                        String newDate = sc.nextLine();
-                        product.setDate(newDate);
-                        break;
-                    case "5":
-                        System.out.print("Nhập giá mới: ");
-                        Long newPrice = sc.nextLong();
-                        product.setPrice(newPrice);;
-                        break;
-                    case "exit":
-                        exit = true;
-                        break;
-                    default:
-                        System.out.println("!------Lỗi------!");
-                        System.out.println("Nếu muốn thoát vui lòng nhập \"exit\"");
-                        break;
-            }
-            } while (!exit);
+        if (product!=null) {
+            product.edit();
         }
-
     }
 
-    public ProductList searchbyname(String key) {
+    public ProductList searchByName(String key) {
         ProductList productsNew = new ProductList();
         for (int i = 0; i < lenght; i++) {
             if (products[i].getName().contains(key))

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Product {
+public abstract class Product {
     Scanner sc = new Scanner(System.in);
     private String ID;
     private String brand;
@@ -145,5 +145,7 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity=quantity;
     }
+
+    public abstract void edit();
 }
 
