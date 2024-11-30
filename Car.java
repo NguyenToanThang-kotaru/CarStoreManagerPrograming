@@ -102,6 +102,6 @@ public class Car extends Product {
 
     @Override
     public String toString() {
-        return "Car," + getID() + "," + getBrand() + "," + getName() + "," + getDate() + "," + getSeat() + "," + getPrice() + "," + getColor() + "," + getQuantity();
+        return "Car," + getID() + "," + getBrand() + "," + getName() + "," + getDate()  + "," + getPrice() + "," + getColor() + "," + getQuantity()+"," + getSeat();
     }
 }
