@@ -1,0 +1,3 @@
+Customer,1,Huy,12,5,19
+Customer,2,Huyyyy,22dadj,19183,25
+Customer,3,Nhat Huy nha,hahahah,1992928,12

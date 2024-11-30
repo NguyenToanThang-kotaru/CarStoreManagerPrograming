@@ -58,7 +58,8 @@ public class CustomerManager {
                     HeaderFooter.printFooter();
                     break;
                 case "exit":
-                    exit = true;                
+                    exit = true;
+                    this.writeToFile();
                     break;
                 default:
                     System.out.println("!------Lỗi------!");
@@ -73,17 +74,15 @@ public class CustomerManager {
             BufferedReader input = new BufferedReader(new FileReader("./database/customers.txt"));
             String line = input.readLine();
             while (line != null) {
-                System.out.println(line);
                 String[] arr = line.split(",");
+                this.shopCustomers.add(new Customer(arr[1], arr[2], arr[3], arr[4], Short.parseShort(arr[5])));
                 line = input.readLine();
-                System.out.println(line);
             }
 
             input.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
-            
+        }            
     }
 
     public void writeToFile(){
@@ -92,8 +91,8 @@ public class CustomerManager {
             FileWriter fw = new FileWriter("./database/customers.txt");
             for(Customer customer : customers){
                 fw.write(customer.toString());
+                fw.write("\r\n");
             }
-            fw.write("\r\n");
             fw.close();
             } catch (Exception e) {
             System.out.println(e);
