@@ -74,7 +74,7 @@ public abstract class Product {
         System.out.print("Giá: ");
         while (true) {
             try {
-                price = Integer.parseInt(sc.nextLine());
+                price = Long.parseLong(sc.nextLine());
                 if (price < 0) {
                     System.out.println("Giá không thể âm. Vui lòng nhập lại:");
                 } else {
@@ -87,7 +87,7 @@ public abstract class Product {
         System.out.print("Màu: ");
         color = sc.nextLine();
         System.out.print("Số lượng: ");
-        quantity = sc.nextInt();
+        quantity = Integer.parseInt(sc.nextLine());
 
     }
 // ---------------------------------------------Get
@@ -148,4 +148,3 @@ public abstract class Product {
 
     public abstract void edit();
 }
-
