@@ -11,6 +11,11 @@ public class Car extends Product {
         this.seat = seat;
     }
 
+    public Car(Car x){
+        // UPCASTING
+        super((Product)x);
+        this.seat = x.seat;
+    }
     public void input() {
         super.input();
         System.out.print("Số chỗ: ");

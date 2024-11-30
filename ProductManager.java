@@ -80,18 +80,16 @@ public class ProductManager {
             String line = input.readLine();
             while (line != null) {
                 String[] arr = line.split(",");
-                if (arr[0]=="Car") {
+                if (arr[0].equals("Car")) {
                     this.shopProducts.add(new Car(arr[1], arr[2], arr[3], arr[4], Long.parseLong(arr[5]),
                         arr[6], Integer.parseInt(arr[7]), Byte.parseByte(arr[8])));  
-                    line = input.readLine();
-                }
-                else
-                {
+                } else
+                if(arr[0].equals("Motorbike")) {
                     this.shopProducts.add(new Motorbike(arr[1], arr[2], arr[3], arr[4], Long.parseLong(arr[5]),
-                        arr[6], Integer.parseInt(arr[7]), Short.parseShort(arr[8])));  
-                    line = input.readLine();
+                    arr[6], Integer.parseInt(arr[7]), Short.parseShort(arr[8])));  
                 }
-
+                
+                line = input.readLine();
             }
 
             input.close();

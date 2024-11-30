@@ -4,28 +4,28 @@ import java.util.Scanner;
 public class ProductList {
     Scanner sc = new Scanner(System.in);
     Product[] products;
-    int lenght;
+    int length;
 
     public ProductList() {
-        lenght = 0;
+        length = 0;
         products = new Product[0];
     }
 
-    public ProductList(int lenght, Product[] products) {
-        this.lenght = lenght;
+    public ProductList(int length, Product[] products) {
+        this.length = length;
         this.products = products;
     }
 
-    public int getLenght() {
-        return lenght;
+    public int getlength() {
+        return length;
     }
 
     public void input() {
         System.out.print("Nhập số lượng sản phẩm: ");
-        lenght = Integer.parseInt(sc.nextLine());
-        products = new Product[lenght];
+        length = Integer.parseInt(sc.nextLine());
+        products = new Product[length];
 
-        for (int i = 0; i < lenght; i++) {
+        for (int i = 0; i < length; i++) {
             boolean check = false;
             do {
                 System.out.println("1: Car");
@@ -50,13 +50,13 @@ public class ProductList {
     }
 
     public void display() {
-        for (int i = 0; i < lenght; i++) {
+        for (int i = 0; i < length; i++) {
             products[i].display();
         }
     }
 
     public void add() {
-        products = Arrays.copyOf(products, lenght + 1);
+        products = Arrays.copyOf(products, length + 1);
         boolean check = false;
         do {
             System.out.println("Xe bạn muốn chọn để thêm vào: ");
@@ -66,27 +66,33 @@ public class ProductList {
             loaixe = sc.nextLine();
             switch (loaixe) {
                 case "1":
-                    products[lenght] = new Car();
+                    products[length] = new Car();
                     check = true;
                     break;
                 case "2":
-                    products[lenght] = new Motorbike();
+                    products[length] = new Motorbike();
                     check = true;
                     break;
                 default:
                     break;
             }
         } while (!check);
-        products[lenght].input();
-        lenght++;
+        products[length].input();
+        length++;
     }
 
     public void add(Product x) {
+        products = Arrays.copyOf(products, length + 1);
         if (x instanceof Car) {
-            products[lenght] = new Car();
+            // DOWNCASTING
+            products[length] = new Car((Car)x);
         }
-        else
-            products[lenght] = new Motorbike();
+        else{
+            // DOWNCASTING
+            products[length] = new Motorbike((Motorbike)x);
+        }
+
+        length++;
     }
 
     public void delete() {
@@ -97,13 +103,13 @@ public class ProductList {
     }
 
     public void delete(String ma) {
-        for (int i = 0; i < lenght; i++) {
+        for (int i = 0; i < length; i++) {
             if (products[i].getID().equals(ma)) {
-                for (int j = i; j < lenght - 1; j++) {
+                for (int j = i; j < length - 1; j++) {
                     products[j] = products[j + 1];
                 }
-                products = Arrays.copyOf(products, lenght - 1);
-                lenght--;
+                products = Arrays.copyOf(products, length - 1);
+                length--;
                 break;
             }
         }
@@ -126,7 +132,7 @@ public class ProductList {
 
     public ProductList searchByName(String key) {
         ProductList productsNew = new ProductList();
-        for (int i = 0; i < lenght; i++) {
+        for (int i = 0; i < length; i++) {
             if (products[i].getName().contains(key))
                 productsNew.add(products[i]);
         }
@@ -140,7 +146,7 @@ public class ProductList {
     }
 
     public Product search(String Id) {
-        for (int i = 0; i < lenght; i++) {
+        for (int i = 0; i < length; i++) {
             if (Id.equals(products[i].getID())) {
                 return products[i];
             }

@@ -10,6 +10,11 @@ public class Motorbike extends Product{
         this.CC=CC;
     }
 
+    public Motorbike(Motorbike x){
+        // UPCASTING
+        super((Product)x);
+        this.CC = x.CC;
+    }
     public void input() {
         super.input();
         System.out.print("Phân khối: ");
