@@ -1,7 +1,5 @@
 import java.util.Scanner;
 import java.util.Arrays;
-import java.io.FileReader;
-import java.io.BufferedReader;
 import java.io.FileWriter;
 
 public class OrderList implements IDisplayable {

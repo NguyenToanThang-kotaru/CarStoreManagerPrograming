@@ -1,7 +1,4 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class ProductList {
@@ -112,13 +109,13 @@ public class ProductList {
         }
     }
 
-    // public void edit() {
-    // String id;
-    // System.out.print("Nhập ID sản phẩm cần sửa: ");
-    // id = sc.nextLine();
-    // search()
-    // edit(id);
-    // }
+    public void edit() {
+    String id;
+    System.out.print("Nhập ID sản phẩm cần sửa: ");
+    id = sc.nextLine();
+    search();
+    edit(id);
+    }
 
     public void edit(String id) {
         Product product = search(id);

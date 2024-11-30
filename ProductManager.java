@@ -14,7 +14,61 @@ public class ProductManager {
 
 
 
-
+    public void menu() {
+        boolean exit = false;
+        do{
+            HeaderFooter.printHeader("Menu");
+            System.out.println("1: Xem sản phẩm");
+            System.out.println("2: Thêm sản phẩm");
+            System.out.println("3: Sửa thông tin sản phẩm");
+            System.out.println("4: Xoá sản phẩm");
+            System.out.println("5: Tìm sản phẩm");
+            System.out.println("exit: Thoát");
+            String luachon = "";
+            System.out.print("Nhập lựa chọn: ");
+            luachon = sc.nextLine();
+            switch (luachon) {
+                case "1":
+                    HeaderFooter.printHeader("Thông tin của các sản phẩm");
+                    shopProducts.display();
+                    HeaderFooter.printFooter();
+                    break;
+                case "2":
+                    HeaderFooter.printHeader("Thêm sản phẩm");
+                    shopProducts.add();
+                    HeaderFooter.printFooter();
+                    break;
+                case "3":
+                    HeaderFooter.printHeader("Sửa sản phẩm");
+                    shopProducts.edit();
+                    HeaderFooter.printFooter();
+                    break;
+                case "4":
+                    HeaderFooter.printHeader("Xoá sản phẩm");
+                    shopProducts.delete();
+                    HeaderFooter.printFooter();
+                    break;
+                case "5":
+                    HeaderFooter.printHeader("Tìm kiếm sản phẩm");
+                    Product product = shopProducts.search();
+                    if(product != null){
+                        product.display();
+                    } else{
+                        System.out.println("Không tìm thấy sản phẩm!!!");
+                    }
+                    HeaderFooter.printFooter();
+                    break;
+                case "exit":
+                    exit = true;
+                    this.writeToFile();
+                    break;
+                default:
+                    System.out.println("!------Lỗi------!");
+                    System.out.println("Nếu muốn thoát vui lòng nhập \"exit\"");
+                    break;
+            }
+        } while(!exit);
+    }
     
 
 
