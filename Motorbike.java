@@ -98,4 +98,8 @@ public class Motorbike extends Product{
             }
         } while (!exit);
     }
+    @Override
+    public String toString() {
+        return "Motorbike," + getID() + "," + getBrand() + "," + getName() + "," + getDate() + "," + getCC() + "," + getPrice() + "," + getColor() + "," + getQuantity();
+    }
 }

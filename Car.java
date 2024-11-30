@@ -85,7 +85,7 @@ public class Car extends Product {
                     this.setQuantity(newQuantity);
                     break;
                 case "8":
-                    System.out.print("Nhập số lượng mới: ");
+                    System.out.print("Nhập số chỗ ngồi mới: ");
                     byte newSeat = Byte.parseByte(sc.nextLine());
                     this.setSeat(newSeat);
                     break;
@@ -99,5 +99,9 @@ public class Car extends Product {
             }
         } while (!exit);
     }
-}
 
+    @Override
+    public String toString() {
+        return "Car," + getID() + "," + getBrand() + "," + getName() + "," + getDate() + "," + getSeat() + "," + getPrice() + "," + getColor() + "," + getQuantity();
+    }
+}

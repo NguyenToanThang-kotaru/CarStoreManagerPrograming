@@ -151,11 +151,23 @@ public class ProductList {
         return null;
     }
 
+    public Product[] getProducts(){
+        return this.products;
+    }
+
+
+    // public void getList() {
+        
+    // }
+
     // public static void main(String[] args) {
     // ProductList a = new ProductList();
     // a.add();
     // a.add();
     // a.display();
     // }
+
+
+
 
 }
