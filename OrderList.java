@@ -94,7 +94,7 @@ public class OrderList implements IDisplayable {
         System.out.println("Không tìm thấy mã đơn hàng!");
         return null;
     }
-    public Order[] getOrderList(){
+    public Order[] getOrders(){
         return orders;
     }
 }
