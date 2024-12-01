@@ -50,6 +50,9 @@ public class ProductList {
     }
 
     public void display() {
+        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n",
+                "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
+        System.out.println(  "----------------------------------------------------------------------------------------------------------------");
         for (int i = 0; i < length; i++) {
             products[i].display();
         }
@@ -85,11 +88,10 @@ public class ProductList {
         products = Arrays.copyOf(products, length + 1);
         if (x instanceof Car) {
             // DOWNCASTING
-            products[length] = new Car((Car)x);
-        }
-        else{
+            products[length] = new Car((Car) x);
+        } else {
             // DOWNCASTING
-            products[length] = new Motorbike((Motorbike)x);
+            products[length] = new Motorbike((Motorbike) x);
         }
 
         length++;
@@ -116,19 +118,19 @@ public class ProductList {
     }
 
     public void edit() {
-    String id;
-    System.out.print("Nhập ID sản phẩm cần sửa: ");
-    id = sc.nextLine();
-    search(id);
-    edit(id);
+        String id;
+        System.out.print("Nhập ID sản phẩm cần sửa: ");
+        id = sc.nextLine();
+        search(id);
+        edit(id);
     }
 
     public void edit(String id) {
         Product product = search(id);
-        if (product!=null) {
+        if (product != null) {
             product.edit();
         }
-    }   
+    }
 
     public ProductList searchByName(String key) {
         ProductList productsNew = new ProductList();
@@ -148,8 +150,7 @@ public class ProductList {
         return productsNew;
     }
 
-
-    public Product search(){
+    public Product search() {
         System.out.println("Nhập ID bạn cần tìm kiếm: ");
         String ID = sc.nextLine();
         return search(ID);
@@ -164,23 +165,16 @@ public class ProductList {
         return null;
     }
 
-    public Product[] getProducts(){
+    public Product[] getProducts() {
         return this.products;
     }
 
-
     // public void getList() {
-        
     // }
-
     // public static void main(String[] args) {
     // ProductList a = new ProductList();
     // a.add();
     // a.add();
     // a.display();
     // }
-
-
-
-
 }

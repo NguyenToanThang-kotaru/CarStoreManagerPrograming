@@ -43,9 +43,10 @@ public class Car extends Product {
 
     }
 
-    public void display() {
-        super.display();
-        System.out.println("Số chỗ: " + seat);
+    public void display() {        
+        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n", 
+                          ID, brand, name, date, (int) price, color, quantity, seat);
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
     }
     
     public byte getSeat(){

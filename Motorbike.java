@@ -40,8 +40,9 @@ public class Motorbike extends Product{
     }
 
     public void display() {
-        super.display();
-        System.out.println("Phân khối: " + CC);
+        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n", 
+                          ID, brand, name, date, (int) price, color, quantity, CC);
+        System.out.println("--------------------------------------------------------------------------------");
     }
 
     public short getCC(){

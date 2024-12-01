@@ -42,18 +42,7 @@ public abstract class Product {
         this.quantity = x.quantity;
     }
 
-    
-
-    public void display() {
-        System.out.println("ID: " + ID);
-        System.out.println("Hãng xe: " + brand);
-        System.out.println("Tên xe: " + name);
-        System.out.println("Năm sản xuất: " + date);
-        System.out.println("Giá: " + price);
-        System.out.println("Màu: " + color);
-        System.out.println("Số lượng: " + quantity);
-    }
-  
+      
     public void input() {
         System.out.print("Hãng xe: ");
         brand = sc.nextLine();
@@ -135,7 +124,8 @@ public abstract class Product {
     public void setQuantity(int quantity) {
         this.quantity=quantity;
     }
-
+    
+    public abstract void display();
     public abstract void edit();
     public abstract String toString();
 }
