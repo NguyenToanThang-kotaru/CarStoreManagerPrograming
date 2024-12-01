@@ -117,6 +117,6 @@ public class Motorbike extends Product{
     }
     @Override
     public String toString() {
-        return "Motorbike," + ID + "," + brand + "," + name + "," + date + "," + price + "," + color + "," + quantity + "," + CC + ",";
+        return "Motorbike," + ID + "," + brand + "," + name + "," + date + "," + price + "," + color + "," + quantity + "," + CC;
     }
 }

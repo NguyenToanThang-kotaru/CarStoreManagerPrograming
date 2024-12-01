@@ -93,15 +93,15 @@ public class OrderManager {
     }
 
     public void writeToFile(){
-        Order[] orders = shopOrders.getOrderList();
+        Order[] orders = shopOrders.getOrders();
         try {
             FileWriter fw = new FileWriter("./database/orders.txt");
-            for(int i=0; i<orders.length; i++){
+            for(int i = 0; i < orders.length; i++){
                 fw.write(orders[i].toString());
                 fw.write("\r\n");
-                ProductList products = orders[i].getOrderedProducts();
-                for(int j=0; j<products.getlength(); j++){
-                    fw.write(products.getProducts()[j].toString());
+                Product[] orderedProducts = orders[i].getOrderedProducts().getProducts();
+                for(Product orderedProduct : orderedProducts){
+                    fw.write(orderedProduct.toString());
                     fw.write("\r\n");
                 }
             }
