@@ -1,5 +1,9 @@
-public class HeaderFooter {
+public final class HeaderFooter {
     private static String title;
+    private HeaderFooter(){
+
+    }
+    
     public static void printHeader(String title){
         System.out.println("=========" + title + "=========");
         HeaderFooter.title = title;
