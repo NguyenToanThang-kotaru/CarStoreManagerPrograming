@@ -32,7 +32,7 @@ public class Car extends Product {
     }
     
     public void setSeat(byte seat){
-        this.seat=seat;
+        this.seat = seat;
     }
     public void edit() {
         boolean exit = false;
@@ -107,6 +107,6 @@ public class Car extends Product {
 
     @Override
     public String toString() {
-        return "Car," + getID() + "," + getBrand() + "," + getName() + "," + getDate()  + "," + getPrice() + "," + getColor() + "," + getQuantity()+"," + getSeat();
+        return "Car," + this.ID + "," + this.brand + "," + this.name + "," + this.date  + "," + this.price + "," + this.color + "," + this.quantity + "," + this.seat;
     }
 }

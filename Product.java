@@ -3,13 +3,13 @@ import java.util.Scanner;
 
 public abstract class Product {
     Scanner sc = new Scanner(System.in);
-    private String ID;
-    private String brand;
-    private String name;
-    private String date;
-    private long price;
-    private String color;
-    private int quantity;
+    protected String ID;
+    protected String brand;
+    protected String name;
+    protected String date;
+    protected long price;
+    protected String color;
+    protected int quantity;
     private static ArrayList<String> checkID = new ArrayList<>();
 
     public Product() {
@@ -147,4 +147,5 @@ public abstract class Product {
     }
 
     public abstract void edit();
+    public abstract String toString();
 }
