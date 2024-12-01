@@ -16,7 +16,7 @@ public class ProductList {
         this.products = products;
     }
 
-    public int getlength() {
+    public int getLength() {
         return length;
     }
 
@@ -48,7 +48,7 @@ public class ProductList {
             products[i].input();
         }
     }
-
+    
     public void display() {
         System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
                 "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
@@ -132,19 +132,19 @@ public class ProductList {
         }
     }
 
-    public ProductList searchByName(String key) {
+    public ProductList searchByName(String Name) {
         ProductList productsNew = new ProductList();
         for (int i = 0; i < length; i++) {
-            if (products[i].getName().toLowerCase().contains(key.toLowerCase()))
+            if (products[i].getName().toLowerCase().contains(Name.toLowerCase()))
                 productsNew.add(products[i]);
         }
         return productsNew;
     }
 
-    public ProductList searchByBrand(String key) {
+    public ProductList searchByBrand(String Brand) {
         ProductList productsNew = new ProductList();
         for (int i = 0; i < length; i++) {
-            if (products[i].getBrand().equalsIgnoreCase(key))
+            if (products[i].getBrand().equalsIgnoreCase(Brand))
                 productsNew.add(products[i]);
         }
         return productsNew;

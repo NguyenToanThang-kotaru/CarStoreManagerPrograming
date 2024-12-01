@@ -4,6 +4,7 @@ public class Car extends Product {
     private byte seat;
     private static int currentIDNumber = -1;
 
+
     public Car() {
         super();
         seat = 4;

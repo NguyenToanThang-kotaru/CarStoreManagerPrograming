@@ -14,7 +14,7 @@ public class ProductManager {
 
     public void showProducts(ProductList productList) {
         Product[] products = productList.getProducts();
-        int productsLength = productList.getlength();
+        int productsLength = productList.getLength();
         for (int i = 0; i < productsLength; i++) {
             System.out.println((i + 1) + ".");
             System.out.println("Tên: " + products[i].getName() + "   " + "Hãng: " + products[i].getBrand());
@@ -45,7 +45,7 @@ public class ProductManager {
                             break;
                         } else if (Validation.isInteger(luachon)) {
                             int index = Integer.parseInt(luachonSP);
-                            if (index >= 1 && index <= shopProducts.getlength()) {
+                            if (index >= 1 && index <= shopProducts.getLength()) {
                                 String xacnhan = "";
                                 do {
                                     System.out.println("Y/N (Xác nhận/Huỷ bỏ)");
@@ -64,7 +64,7 @@ public class ProductManager {
                     System.out.print("Nhập hãng muốn tìm: ");
                     String brand = sc.nextLine();
                     // ProductList filteredProducts = shopProducts.searchByBrand(brand);
-                    // if(filteredProducts.getlength() == 0){
+                    // if(filteredProducts.getLength() == 0){
                     // System.out.println("Không tìm thấy sản phẩm có hãng " + brand);
                     // break;
                     // }
@@ -77,7 +77,7 @@ public class ProductManager {
                     // } else
                     // if(Validation.isInteger(luachon)){
                     // int index = Integer.parseInt(luachonSP);
-                    // if(index >= 1 && index <= filteredProducts.getlength()){
+                    // if(index >= 1 && index <= filteredProducts.getLength()){
                     // String xacnhan = "";
                     // do{
                     // System.out.println("Y/N (Xác nhận/Huỷ bỏ)");
@@ -96,7 +96,7 @@ public class ProductManager {
                     System.out.print("Nhập tên sản phẩm muốn tìm: ");
                     String name = sc.nextLine();
                     ProductList filteredProducts = shopProducts.searchByName(name);
-                    if (filteredProducts.getlength() == 0) {
+                    if (filteredProducts.getLength() == 0) {
                         System.out.println("Không tìm thấy sản phẩm có tên chứa " + name);
                         break;
                     }
@@ -110,7 +110,7 @@ public class ProductManager {
                             break;
                         } else if (Validation.isInteger(luachon)) {
                             int index = Integer.parseInt(luachonSP);
-                            if (index >= 1 && index <= filteredProducts.getlength()) {
+                            if (index >= 1 && index <= filteredProducts.getLength()) {
                                 isValid = true;
                                 String xacnhan = "";
                                 do {
