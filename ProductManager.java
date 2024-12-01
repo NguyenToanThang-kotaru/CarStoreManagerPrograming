@@ -111,4 +111,9 @@ public class ProductManager {
             System.out.println(e);
         }
     }
+
+    public static void main(String[] args) {
+        ProductManager a = new ProductManager();
+        a.menu();
+    }
 }
