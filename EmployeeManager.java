@@ -32,7 +32,7 @@ public class EmployeeManager{
     }
     
     public void writeToFile("./employee.txt"){
-        Employee[] employees = EmployeeList1.getEmployees();
+        Employee[] employees = shopEmployee.getEmployees();
         try {
             FileWriter fw = new FileWriter("./database/employee.txt");
             for(Employee employee : employees){
