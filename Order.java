@@ -95,6 +95,9 @@ public class Order implements IDisplayable {
     public void setOrderDate(String orderDate){
         this.orderDate = orderDate;
     }
+    public void setStatus(String status){
+        this.status = status;
+    }
     public void calculateTotalePrice(){
         for(int j=0; j<orderedProducts.getlength(); j++){
             Product product = orderedProducts.getProducts()[j];
