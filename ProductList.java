@@ -144,7 +144,7 @@ public class ProductList {
     public ProductList searchByBrand(String key) {
         ProductList productsNew = new ProductList();
         for (int i = 0; i < length; i++) {
-            if (products[i].getBrand().contains(key))
+            if (products[i].getBrand().equalsIgnoreCase(key))
                 productsNew.add(products[i]);
         }
         return productsNew;
