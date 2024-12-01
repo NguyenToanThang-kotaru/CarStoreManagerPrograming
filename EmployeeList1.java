@@ -26,7 +26,7 @@ public class EmployeeList1 {
     }
     public void display(){
         if(length==0){
-            System.out.println("Không có khách hàng nào");
+            System.out.println("Không có nhân viên nào");
         }else{
             System.out.printf("\n");
             for(Employee employee:employees){
