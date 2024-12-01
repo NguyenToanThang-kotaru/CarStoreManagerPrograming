@@ -4,7 +4,7 @@ public class Order implements IDisplayable {
     Scanner r = new Scanner(System.in);
     private String ID;
     private String customerID;
-//    private ProductList products;
+    private ProductList orderedProducts;
     private String status;
     private String orderDate;
     private long totalPrice;
@@ -14,12 +14,15 @@ public class Order implements IDisplayable {
         status = "Đang xử lý";
         orderDate = "";
         totalPrice = 0;
+        orderedProducts = new ProductList();
     }
-    public Order(String ID, String customerID, String orderDate, long totalPrice){
+    public Order(String ID, String customerID, long totalPrice, String orderDate, String status){
         this.ID = ID;
         this.customerID = customerID;
         this.orderDate = orderDate;
         this.totalPrice = totalPrice;
+        this.status = status;
+        orderedProducts = new ProductList();
     }
     public Order(Order order){
         this.ID = order.ID;
@@ -27,6 +30,8 @@ public class Order implements IDisplayable {
         this.status = order.status;
         this.orderDate = order.orderDate;
         this.totalPrice = order.totalPrice;
+        this.status = order.status;
+        this.orderedProducts = order.orderedProducts;
     }
     public void input(){
         System.out.print("Nhập ID đơn hàng: ");
@@ -44,6 +49,11 @@ public class Order implements IDisplayable {
         System.out.println("Trạng thái: "+status);
         System.out.println("Ngày đặt: "+orderDate);
         System.out.println("Giá đơn: "+totalPrice);
+        System.out.println("Danh sách xe: ");
+        if(orderedProducts != null)
+            orderedProducts.display();
+        else
+            System.out.println("Chưa có xe nào.");
     }
     public String getID(){
         return ID;
@@ -60,8 +70,8 @@ public class Order implements IDisplayable {
     public long getTotalPrice(){
         return totalPrice;
     }
-    public void setID(String ID){
-        this.ID = ID;
+    public ProductList getOrderedProducts(){
+        return orderedProducts;
     }
     public void setCustomerID(String customerID){
         this.customerID = customerID;
@@ -71,5 +81,36 @@ public class Order implements IDisplayable {
     }
     public void setTotalePrice(long totalPrice){
         this.totalPrice = totalPrice;
+    }
+    // public void addProductToOrder(){
+    //     Product x = null;
+    //     boolean isTypedTrue = false;
+    //     do{
+    //         System.out.println("Loại xe:");
+    //         System.out.println("1. Xe máy");
+    //         System.out.println("2. Xe hơi");
+    //         System.out.println("Nhập số: ");
+    //         byte type = r.nextByte();
+    //         switch (type) {
+    //             case 1:
+    //                 x = new Motorbike();
+    //                 isTypedTrue = true;
+    //                 break;
+    //             case 2:
+    //                 x = new Car();
+    //                 isTypedTrue = true;
+    //                 break;
+    //             default:
+    //             System.out.println("Không thể tìm thấy!");
+    //             System.out.println("Vui lòng nhập lại");
+    //                 break;
+    //         }
+
+    //     }while(isTypedTrue == true);
+    //     addProductToOrder(x);
+    // }
+
+    public void addProductToOrder(Product x){
+        orderedProducts.add(x);
     }
 }
