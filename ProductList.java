@@ -119,7 +119,7 @@ public class ProductList {
     String id;
     System.out.print("Nhập ID sản phẩm cần sửa: ");
     id = sc.nextLine();
-    search();
+    search(id);
     edit(id);
     }
 
