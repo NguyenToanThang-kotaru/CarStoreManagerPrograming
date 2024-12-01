@@ -57,8 +57,7 @@ public class Order implements IDisplayable {
         customerID = r.nextLine();
         System.out.print("Nhập ngày đặt: ");
         orderDate = r.nextLine();
-        System.out.print("Nhập giá đơn: ");
-        totalPrice = r.nextLong();
+        totalPrice = 0;
     }
     public void display(){
         System.out.println("Mã đơn: "+ID);
@@ -96,8 +95,11 @@ public class Order implements IDisplayable {
     public void setOrderDate(String orderDate){
         this.orderDate = orderDate;
     }
-    public void setTotalePrice(long totalPrice){
-        this.totalPrice = totalPrice;
+    public void calculateTotalePrice(){
+        for(int j=0; j<orderedProducts.getlength(); j++){
+            Product product = orderedProducts.getProducts()[j];
+            totalPrice += product.getPrice();
+        }
     }
     // public void addProductToOrder(){
     //     Product x = null;
@@ -129,6 +131,7 @@ public class Order implements IDisplayable {
 
     public void addProductToOrder(Product x){
         orderedProducts.add(x);
+        calculateTotalePrice();
     }
     @Override
     public String toString(){
