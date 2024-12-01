@@ -78,6 +78,7 @@ public class OrderManager {
                 if(arr[0].equals("Order")){
                     currentOrder = new Order(arr[1], arr[2], Long.parseLong(arr[3]), arr[4], arr[5]);
                     this.shopOrders.add(currentOrder);
+                    Order.increaseCurrentIDNumer();
                 }
                 else if(arr[0].equals("Car"))
                     currentOrder.addProductToOrder(new Car(arr[1], arr[2], arr[3], arr[4], Long.parseLong(arr[5]), arr[6], Integer.parseInt(arr[7]), Byte.parseByte(arr[8])));
@@ -92,6 +93,21 @@ public class OrderManager {
     }
 
     public void writeToFile(){
-        
+        Order[] orders = shopOrders.getOrderList();
+        try {
+            FileWriter fw = new FileWriter("./database/orders.txt");
+            for(int i=0; i<orders.length; i++){
+                fw.write(orders[i].toString());
+                fw.write("\r\n");
+                ProductList products = orders[i].getOrderedProducts();
+                for(int j=0; j<products.getlength(); j++){
+                    fw.write(products.getProducts()[j].toString());
+                    fw.write("\r\n");
+                }
+            }
+            fw.close();
+            } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
