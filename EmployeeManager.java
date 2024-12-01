@@ -7,9 +7,10 @@ import java.io.FileWriter;
 
 public class EmployeeManager{
     Scanner scanner=new Scanner(System.in);
-    private EmployeeList1 employeeList1;
+    private EmployeeList1 shopEmployee;
     public EmployeeManager(){
-        employeeList1= new EmployeeList1();
+        shopEmployee= new EmployeeList1();
+        this.readFromFile();
        
 
     }
@@ -19,8 +20,8 @@ public class EmployeeManager{
             String line = input.readLine();
             while (line != null) {
                 String[] arr = line.split(",");
-               this.employeeList1.add(new Employee(arr[1],arr[2],arr[3],arr[4],Short.parseShort(arr[5]),arr[6],arr[7]));
-                
+               this.shopEmployee.add(new Employee(arr[1],arr[2],arr[3],arr[4],Short.parseShort(arr[5]),arr[6],arr[7]));
+                Employee.increaseCurrentIDNumber;
                 line = input.readLine();
             }
     
@@ -44,38 +45,60 @@ public class EmployeeManager{
         }
     }
     public void displayMenu() {
-        while (true) {
-            System.out.println("==== MENU ====");
-            System.out.println("1. Đọc danh sách nhân viên từ tệp");
-            System.out.println("2. Hiển thị danh sách nhân viên");
-            System.out.println("3. Thêm nhân viên mới");
-            System.out.println("4. Ghi danh sách nhân viên vào tệp");
-            System.out.println("5. Thoát");
-            System.out.print("Chọn một lựa chọn: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();  
-
-            switch (choice) {
-                case 1:
-                    readFromFile("./employees.txt");
+        boolean exit=false;
+        do{
+            HeaderFooter.printHeader("Menu");
+            System.out.println("1: Xem sản phẩm");
+            System.out.println("2: Thêm sản phẩm");
+            System.out.println("3: Sửa thông tin sản phẩm");
+            System.out.println("4: Xoá sản phẩm");
+            System.out.println("5: Tìm sản phẩm");
+            System.out.println("exit: Thoát");
+            String luachon = "";
+            System.out.print("Nhập lựa chọn: ");
+            luachon = sc.nextLine();
+            switch (luachon) {
+                case "1":
+                    HeaderFooter.printHeader("Thông tin của các sản phẩm");
+                    shopProducts.display();
+                    HeaderFooter.printFooter();
                     break;
-                case 2:
-                    displayEmployees();
+                case "2":
+                    HeaderFooter.printHeader("Thêm sản phẩm");
+                    shopProducts.add();
+                    HeaderFooter.printFooter();
                     break;
-                case 3:
-                    addEmployee();
+                case "3":
+                    HeaderFooter.printHeader("Sửa sản phẩm");
+                    shopProducts.edit();
+                    HeaderFooter.printFooter();
                     break;
-                case 4:
-                    writeToFile("./employees.txt");
+                case "4":
+                    HeaderFooter.printHeader("Xoá sản phẩm");
+                    shopProducts.delete();
+                    HeaderFooter.printFooter();
                     break;
-                case 5:
-                    System.out.println("Thoát chương trình...");
-                    return;
+                case "5":
+                    HeaderFooter.printHeader("Tìm kiếm sản phẩm");
+                    Product product = shopProducts.search();
+                    if(product != null){
+                        product.display();
+                    } else{
+                        System.out.println("Không tìm thấy sản phẩm!!!");
+                    }
+                    HeaderFooter.printFooter();
+                    break;
+                case "exit":
+                    exit = true;
+                    this.writeToFile();
+                    break;
                 default:
-                    System.out.println("Lựa chọn không hợp lệ, vui lòng chọn lại.");
+                    System.out.println("!------Lỗi------!");
+                    System.out.println("Nếu muốn thoát vui lòng nhập \"exit\"");
                     break;
             }
-        }
+        } while(!exit);
     }
+
+
     
-}
