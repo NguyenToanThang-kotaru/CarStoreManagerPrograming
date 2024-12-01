@@ -11,15 +11,16 @@ public class Shop {
     }
 
     private void taoDonHang(){
-        Order newOrder = new Order();
         System.out.print("Nhập số điện thoại: ");
         String phone = sc.nextLine();
         Customer customer = customerManager.searchByPhone(phone);
         if(customer == null){
+            System.out.println("Khách hàng chưa tồn tại, mời thêm mới");
             customerManager.add();
         } else{
             customer.display();
         }
+        Order newOrder = new Order();
         newOrder.input();
         newOrder.addProductListToOrder(currentProducts);
         HeaderFooter.printHeader("TESTING");
@@ -84,6 +85,7 @@ public class Shop {
                     this.customerManager.writeToFile();
                     this.orderManager.writeToFile();
                     this.productManager.writeToFile();
+                    // this.employeeManager.writeToFile();
                     break;
                 default:
                     System.out.println("Lựa chọn không hợp lệ");

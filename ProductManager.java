@@ -78,14 +78,14 @@ public class ProductManager {
                     //     } else
                     //     if(Validation.isInteger(luachon)){
                     //         int index = Integer.parseInt(luachonSP);
-                    //         if(index >= 1 && index <= shopProducts.getlength()){
+                    //         if(index >= 1 && index <= filteredProducts.getlength()){
                     //             String xacnhan = "";
                     //             do{
                     //                 System.out.println("Y/N (Xác nhận/Huỷ bỏ)");
                     //                 xacnhan = sc.nextLine();
                     //             } while(!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
                     //             if(xacnhan.equalsIgnoreCase("Y")){
-                    //                 currentProducts.add(shopProducts.getProducts()[index - 1]);
+                    //                 currentProducts.add(filteredProducts.getProducts()[index - 1]);
                     //             }
                     //         }
                     //     }
@@ -112,7 +112,7 @@ public class ProductManager {
                         } else
                         if(Validation.isInteger(luachon)){
                             int index = Integer.parseInt(luachonSP);
-                            if(index >= 1 && index <= shopProducts.getlength()){
+                            if(index >= 1 && index <= filteredProducts.getlength()){
                                 isValid = true;
                                 String xacnhan = "";
                                 do{
@@ -120,7 +120,7 @@ public class ProductManager {
                                     xacnhan = sc.nextLine();
                                 } while(!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
                                 if(xacnhan.equalsIgnoreCase("Y")){
-                                    currentProducts.add(shopProducts.getProducts()[index - 1]);
+                                    currentProducts.add(filteredProducts.getProducts()[index - 1]);
                                 }
                             }
                         }
