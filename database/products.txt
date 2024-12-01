@@ -1,0 +1,20 @@
+Car,P001, Toyota, Camry, 2023-01-15, 35000000, Đen, 10, 5
+Car,P002, Honda, Civic, 2022-05-20, 30000000, Trắng, 15, 5
+Car,P003, Ford, Focus, 2021-08-10, 32000000, Xanh, 8, 5
+Car,P004, BMW, 320i, 2023-03-12, 120000000, Đỏ, 5, 5
+Car,P005, Mercedes, A-Class, 2022-04-25, 95000000, Bạc, 7, 5
+Car,P006, Hyundai, Elantra, 2022-11-05, 28000000, Vàng, 12, 5
+Car,P007, Kia, Cerato, 2023-02-18, 27000000, Xám, 20, 5
+Car,P008, Nissan, Altima, 2021-06-30, 31000000, Nâu, 10, 5
+Car,P009, Subaru, Impreza, 2022-09-15, 34000000, Xanh lá, 9, 5
+Car,P010, Chevrolet, Malibu, 2023-01-22, 29000000, Cam, 14, 5
+Car,P011, Mazda, 3, 2022-07-11, 33000000, Đen, 11, 5
+Car,P012, Volkswagen, Jetta, 2021-10-05, 35000000, Trắng, 13, 5
+Car,P013, Audi, A4, 2023-04-30, 150000000, Đỏ, 6, 5
+Car,P014, Lexus, ES, 2022-12-12, 140000000, Bạc, 5, 5
+Car,P015, Tesla, Model 3, 2023-05-01, 80000000, Xanh, 8, 5
+Car,P016, Aston Martin, Vantage, 2022-02-20, 250000000, Đen, 3, 2
+Car,P017, Volvo, S60, 2023-06-15, 90000000, Nâu, 4, 5
+Car,P018, Land Rover, Range Rover, 2022-03-10, 200000000, Xám, 2, 5
+Car,P019, Porsche, 911, 2023-07-22, 300000000, Đỏ, 1, 2
+Car,P020, Fiat, 500, 2021-09-08, 22000000, Trắng, 18, 4
