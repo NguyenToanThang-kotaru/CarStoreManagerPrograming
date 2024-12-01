@@ -116,7 +116,7 @@ public class CustomerList {
     public void delete(String ID) {
         boolean isFound = false;
         for(int i = 0; i < length; i++){
-            if(customers[i].getID().equals(ID)){
+            if(customers[i].getID().equalsIgnoreCase(ID)){
                 isFound = true;
                 for(int j = i; j < length - 1; j++){
                     customers[j] = customers[j + 1];
@@ -142,7 +142,7 @@ public class CustomerList {
 
     public Customer search(String ID) {
         for(Customer customer : customers){
-            if(customer.getID().equals(ID)){
+            if(customer.getID().equalsIgnoreCase(ID)){
                 return customer;
             }
         }
@@ -150,6 +150,15 @@ public class CustomerList {
         return null;
     }
 
+    public Customer searchByPhone(String phone){
+        for(Customer customer : customers){
+            if(customer.getPhone().equalsIgnoreCase(phone)){
+                return customer;
+            }
+        }
+
+        return null;
+    }
     public int getLength() {
         return length;
     }

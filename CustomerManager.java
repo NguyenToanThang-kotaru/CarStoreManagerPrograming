@@ -107,4 +107,12 @@ public class CustomerManager {
             System.out.println(e);
         }
     }
+
+    public Customer searchByPhone(String phone){
+        return shopCustomers.searchByPhone(phone);
+    }
+
+    public void add(){
+        shopCustomers.add();
+    }
 }

@@ -12,7 +12,136 @@ public class ProductManager {
         this.readFromFile();
     }
 
+    public void showProducts(ProductList productList){
+        Product[] products = productList.getProducts();
+        int productsLength = productList.getlength();
+        for(int i = 0; i < productsLength; i++){
+            System.out.println((i + 1) + ".");
+            System.out.println("Tên: " + products[i].getName() + "   " + "Hãng: " + products[i].getBrand());
+            System.out.println("Màu: " + products[i].getColor() + "   " + "Giá: " + products[i].getPrice());
+            System.out.print("\n");
+        }
 
+        System.out.println("exit. Thoát");
+    }
+
+    public ProductList buyProducts(){
+        ProductList currentProducts = new ProductList();
+        boolean exit = false;
+        do{
+            System.out.println("1. Tất cả sản phẩm");
+            System.out.println("2. Lọc sản phẩm theo hãng");
+            System.out.println("3. Lọc sản phẩm theo tên");
+            System.out.println("exit. Thoát");
+            String luachon = "";
+            luachon = sc.nextLine();
+            switch (luachon) {
+                case "1":
+                    while(true){
+                        showProducts(shopProducts);
+                        String luachonSP = "";
+                        luachonSP = sc.nextLine();
+                        if(luachonSP.equalsIgnoreCase("exit")){
+                            break;
+                        } else
+                        if(Validation.isInteger(luachon)){
+                            int index = Integer.parseInt(luachonSP);
+                            if(index >= 1 && index <= shopProducts.getlength()){
+                                String xacnhan = "";
+                                do{
+                                    System.out.println("Y/N (Xác nhận/Huỷ bỏ)");
+                                    xacnhan = sc.nextLine();
+                                } while(!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
+                                if(xacnhan.equalsIgnoreCase("Y")){
+                                    currentProducts.add(shopProducts.getProducts()[index - 1]);
+                                }
+                            }
+                        }
+
+                        System.out.println("Vui lòng nhập số trong khoảng hợp lệ hoặc \"exit\"");
+                    }
+                    break;
+                case "2":
+                    System.out.print("Nhập hãng muốn tìm: ");
+                    String brand = sc.nextLine();
+                    // ProductList filteredProducts = shopProducts.searchByBrand(brand);
+                    // if(filteredProducts.getlength() == 0){
+                    //     System.out.println("Không tìm thấy sản phẩm có hãng " + brand);
+                    //     break;
+                    // }
+                    // while(true){
+                    //     showProducts(filteredProducts);
+                    //     String luachonSP = "";
+                    //     luachonSP = sc.nextLine();
+                    //     if(luachonSP.equalsIgnoreCase("exit")){
+                    //         break;
+                    //     } else
+                    //     if(Validation.isInteger(luachon)){
+                    //         int index = Integer.parseInt(luachonSP);
+                    //         if(index >= 1 && index <= shopProducts.getlength()){
+                    //             String xacnhan = "";
+                    //             do{
+                    //                 System.out.println("Y/N (Xác nhận/Huỷ bỏ)");
+                    //                 xacnhan = sc.nextLine();
+                    //             } while(!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
+                    //             if(xacnhan.equalsIgnoreCase("Y")){
+                    //                 currentProducts.add(shopProducts.getProducts()[index - 1]);
+                    //             }
+                    //         }
+                    //     }
+
+                    //     System.out.println("Vui lòng nhập số trong khoảng hợp lệ hoặc \"exit\"");
+                    // }                    
+                    break;
+                case "3":
+                    System.out.print("Nhập tên sản phẩm muốn tìm: ");
+                    String name = sc.nextLine();
+                    ProductList filteredProducts = shopProducts.searchByName(name);
+                    if(filteredProducts.getlength() == 0){
+                        System.out.println("Không tìm thấy sản phẩm có tên chứa " + name);
+                        break;
+                    }
+                    while(true){
+                        showProducts(filteredProducts);
+                        String luachonSP = "";
+                        boolean isValid = false;
+                        luachonSP = sc.nextLine();
+                        if(luachonSP.equalsIgnoreCase("exit")){
+                            isValid = true;
+                            break;
+                        } else
+                        if(Validation.isInteger(luachon)){
+                            int index = Integer.parseInt(luachonSP);
+                            if(index >= 1 && index <= shopProducts.getlength()){
+                                isValid = true;
+                                String xacnhan = "";
+                                do{
+                                    System.out.println("Y/N (Xác nhận/Huỷ bỏ)");
+                                    xacnhan = sc.nextLine();
+                                } while(!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
+                                if(xacnhan.equalsIgnoreCase("Y")){
+                                    currentProducts.add(shopProducts.getProducts()[index - 1]);
+                                }
+                            }
+                        }
+
+                        if(!isValid){
+                            System.out.println("Vui lòng nhập số trong khoảng hợp lệ hoặc \"exit\"");
+                        }
+                    }
+
+                    break;
+                case "exit":
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Lựa chọn không hợp lệ, nếu muốn thoát nhập \"exit\"");
+                    break;
+            }
+        } while(!exit);
+
+        return currentProducts;
+    }
 
     public void menu() {
         boolean exit = false;
@@ -70,22 +199,18 @@ public class ProductManager {
         } while(!exit);
     }
     
-
-
-
-
     public void readFromFile() {
         try {
             BufferedReader input = new BufferedReader(new FileReader("./database/products.txt"));
             String line = input.readLine();
             while (line != null) {
                 String[] arr = line.split(",");
-                if (arr[0].equals("Car")) {
+                if (arr[0].equalsIgnoreCase("Car")) {
                     this.shopProducts.add(new Car(arr[1], arr[2], arr[3], arr[4], Long.parseLong(arr[5]),
                         arr[6], Integer.parseInt(arr[7]), Byte.parseByte(arr[8])));  
                         Car.increaseCurrentIDNumer();
                 } else
-                if(arr[0].equals("Motorbike")) {
+                if(arr[0].equalsIgnoreCase("Motorbike")) {
                     this.shopProducts.add(new Motorbike(arr[1], arr[2], arr[3], arr[4], Long.parseLong(arr[5]),
                     arr[6], Integer.parseInt(arr[7]), Short.parseShort(arr[8])));
                     Motorbike.increaseCurrentIDNumer();

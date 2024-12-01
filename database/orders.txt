@@ -1,10 +1,6 @@
-Order,OD-00001,3,3000,22,Chua xu ly
-Car,1,Honda,name,22,1500,red,3,4
-Car,2,Huyndai,name,23,1500,red,3,6
-Order,OD-00002,KH-00001,3000,22,Đã giao
-Car,1,Honda,name,22,1500,red,3,4
-<<<<<<< HEAD
-Motorbike,3,Yamaha,name,23,1500,red,3,150,
-=======
-Motorbike,3,Yamaha,name,23,1500,red,3,150
->>>>>>> 34027c50ed2a20b470af5440ee550228f0e50cc9
+Order,OD-00001,,0,2024-01-12,Đang xử lý
+Car,C-00000,Toyota,Camry,2023-01-15,35000000,Đen,10,5
+Order,OD-00001,,0,2025-12-12,Đang xử lý
+Car,C-00018,Porsche,911,2023-07-22,300000000,Đỏ,1,2
+Order,OD-00002,,0,2024-1-1,Đang xử lý
+Car,C-00004,Mercedes,A-Class,2022-04-25,95000000,Bạc,7,5
