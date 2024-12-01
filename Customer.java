@@ -21,18 +21,24 @@ public class Customer extends Person {
         this.ID = customer.ID;
     }
 
-    // Tạo ra ID mới, format: flag 0 (đệm thêm '0' cho đủ chiều rộng), 
+    // Tạo ra ID mới, format:
+    // flag 0 (đệm thêm '0' cho đủ chiều rộng),
+    // width 5 (chiều rộng tối thiểu), nếu ko đủ, kết hợp với flag 0 ở trên đệm thêm '0'
+    // conversion d, thể hiện số nguyên
     private static String generateNextID(){
         return String.format("KH-%05d", ++currentIDNumber);
     }
 
+    // Lấy ra ID của khách hàng mới nhất
     public static String getNewestID(){
         return String.format("KH-%05d", currentIDNumber);
     }
 
+    // Tăng số ID, sử dụng khi đọc file, khi khởi động chương trình
     public static void increaseCurrentIDNumer(){
         Customer.currentIDNumber++;
     }
+    
     @Override
     public void input() {
         super.input();

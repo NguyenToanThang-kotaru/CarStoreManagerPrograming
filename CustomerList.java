@@ -64,37 +64,31 @@ public class CustomerList {
             do{
                 System.out.println("---Thông tin khách hàng hiện tại---");
                 customer.display();
-                System.out.println("1: Sửa ID");
-                System.out.println("2: Sửa tên");
-                System.out.println("3: Sửa địa chỉ");
-                System.out.println("4: Sửa số điện thoại");
-                System.out.println("5: Sửa tuổi");
+                System.out.println("1: Sửa tên");
+                System.out.println("2: Sửa địa chỉ");
+                System.out.println("3: Sửa số điện thoại");
+                System.out.println("4: Sửa tuổi");
                 System.out.println("exit: Thoát");
                 String luachon = "";
                 System.out.print("Nhập lựa chọn: ");
                 luachon = sc.nextLine();
                 switch (luachon) {
                     case "1":
-                        System.out.print("Nhập ID mới: ");
-                        String newID = sc.nextLine();
-                        customer.setID(newID);
-                        break;
-                    case "2":
                         System.out.print("Nhập tên mới: ");
                         String newName = sc.nextLine();
                         customer.setName(newName);
                         break;
-                    case "3":
+                    case "2":
                         System.out.print("Nhập địa chỉ mới: ");
                         String newAddress = sc.nextLine();
                         customer.setAddress(newAddress);
                         break;
-                    case "4":
+                    case "3":
                         System.out.print("Nhập số điện thoại mới: ");
                         String newPhone = sc.nextLine();
                         customer.setPhone(newPhone);
                         break;
-                    case "5":
+                    case "4":
                         System.out.print("Nhập tuổi mới: ");
                         short newAge = Short.parseShort(sc.nextLine());
                         customer.setAge(newAge);
