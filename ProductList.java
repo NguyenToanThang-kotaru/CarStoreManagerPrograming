@@ -139,6 +139,16 @@ public class ProductList {
         return productsNew;
     }
 
+    public ProductList searchByBrand(String key) {
+        ProductList productsNew = new ProductList();
+        for (int i = 0; i < length; i++) {
+            if (products[i].getBrand().contains(key))
+                productsNew.add(products[i]);
+        }
+        return productsNew;
+    }
+
+
     public Product search(){
         System.out.println("Nhập ID bạn cần tìm kiếm: ");
         String ID = sc.nextLine();
