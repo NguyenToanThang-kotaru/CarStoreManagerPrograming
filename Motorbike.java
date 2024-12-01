@@ -1,8 +1,10 @@
 public class Motorbike extends Product{
     private short CC;
+    private static int currentIDNumber = -1;
     public Motorbike(){
         super();
         CC = 100;
+
     }    
 
     public Motorbike(String ID, String brand, String name, String date, long price, String color, int quantity,short CC){
@@ -15,10 +17,26 @@ public class Motorbike extends Product{
         super((Product)x);
         this.CC = x.CC;
     }
+
+    private static String generateNextID(){
+        return String.format("M-%05d", ++currentIDNumber);
+    }
+    // Lấy ra ID của khách hàng mới nhất
+
+    public static String getNewestID(){
+        return String.format("M-%05d", currentIDNumber);
+
+    }
+    // Tăng số ID, sử dụng khi đọc file, khi khởi động chương trình
+    public static void increaseCurrentIDNumer(){
+        Motorbike.currentIDNumber++;
+    }
+
     public void input() {
         super.input();
         System.out.print("Phân khối: ");
         CC = Byte.parseByte(sc.nextLine());
+        ID = generateNextID();
     }
 
     public void display() {
@@ -38,14 +56,13 @@ public class Motorbike extends Product{
         do {
             System.out.println("---Thông tin sản phẩm hiện tại---");
             this.display();
-            System.out.println("1: Sửa ID");
-            System.out.println("2: Sửa hãng");
-            System.out.println("3: Sửa tên");
-            System.out.println("4: Sửa năm sản xuất");
-            System.out.println("5: Sửa giá");
-            System.out.println("6: Sửa màu");
-            System.out.println("7: Sửa số lượng");
-            System.out.println("8: Sửa số phân khối");
+            System.out.println("1: Sửa hãng");
+            System.out.println("2: Sửa tên");
+            System.out.println("3: Sửa năm sản xuất");
+            System.out.println("4: Sửa giá");
+            System.out.println("5: Sửa màu");
+            System.out.println("6: Sửa số lượng");
+            System.out.println("7: Sửa số phân khối");
 
 
             System.out.println("exit: Thoát");
@@ -54,41 +71,36 @@ public class Motorbike extends Product{
             luachon = sc.nextLine();
             switch (luachon) {
                 case "1":
-                    System.out.print("Nhập ID mới: ");
-                    String newID = sc.nextLine();
-                    this.setID(newID);
-                    break;
-                case "2":
                     System.out.print("Nhập hãng mới: ");
                     String newBrand = sc.nextLine();
                     this.setBrand(newBrand);
                     break;
-                case "3":
+                case "2":
                     System.out.print("Nhập tên mới: ");
                     String newName = sc.nextLine();
                     this.setName(newName);
                     break;
-                case "4":
+                case "3":
                     System.out.print("Nhập năm sản xuất mới: ");
                     String newDate = sc.nextLine();
                     this.setDate(newDate);
                     break;
-                case "5":
+                case "4":
                     System.out.print("Nhập giá mới: ");
                     Long newPrice = Long.parseLong(sc.nextLine());
                     this.setPrice(newPrice);
                     break;
-                case "6":
+                case "5":
                     System.out.print("Nhập màu mới: ");
                     String newColor = sc.nextLine();
                     this.setColor(newColor);
                     break;
-                case "7":
+                case "6":
                     System.out.print("Nhập số lượng mới: ");
                     int newQuantity = Integer.parseInt(sc.nextLine());
                     this.setQuantity(newQuantity);
                     break;
-                case "8":
+                case "7":
                     System.out.print("Nhập số phân khối mới: ");
                     short newCC = Short.parseShort(sc.nextLine());
                     this.setCC(newCC);

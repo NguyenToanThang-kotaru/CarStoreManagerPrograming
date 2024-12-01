@@ -83,10 +83,12 @@ public class ProductManager {
                 if (arr[0].equals("Car")) {
                     this.shopProducts.add(new Car(arr[1], arr[2], arr[3], arr[4], Long.parseLong(arr[5]),
                         arr[6], Integer.parseInt(arr[7]), Byte.parseByte(arr[8])));  
+                        Car.increaseCurrentIDNumer();
                 } else
                 if(arr[0].equals("Motorbike")) {
                     this.shopProducts.add(new Motorbike(arr[1], arr[2], arr[3], arr[4], Long.parseLong(arr[5]),
-                    arr[6], Integer.parseInt(arr[7]), Short.parseShort(arr[8])));  
+                    arr[6], Integer.parseInt(arr[7]), Short.parseShort(arr[8])));
+                    Motorbike.increaseCurrentIDNumer();
                 }
                 
                 line = input.readLine();

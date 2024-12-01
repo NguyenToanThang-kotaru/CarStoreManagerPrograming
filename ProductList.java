@@ -128,7 +128,7 @@ public class ProductList {
         if (product!=null) {
             product.edit();
         }
-    }
+    }   
 
     public ProductList searchByName(String key) {
         ProductList productsNew = new ProductList();
