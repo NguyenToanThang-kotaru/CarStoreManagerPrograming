@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.Arrays;
-import java.io.FileWriter;
+// import java.io.FileReader;
+// import java.io.BufferedReader;
+// import java.io.FileWriter;
 
 public class OrderList implements IDisplayable {
     Scanner r = new Scanner(System.in);
@@ -16,22 +18,6 @@ public class OrderList implements IDisplayable {
     }
     public static int getLength(){
         return length;
-    }
-    public void readFromFile(){
-        
-    }
-    public void writeToFile(){
-        try{
-            FileWriter fw = new FileWriter("ordersOutput.txt");
-            fw.write(length);
-            for(int i=0; i<length; i++){
-                String s = orders[i].getID() + "," + orders[i].getCustomerID() + "," + orders[i].getStatus() +","+ orders[i].getOrderDate() +","+ orders[i].getTotalPrice();
-                fw.write(s + "\n");
-            }
-            fw.close();
-        }catch(Exception e){
-            System.out.println("Lỗi khi ghi vào file"+ e);
-        }
     }
     public void input(){
         System.out.print("Nhập số phần tử: ");
@@ -107,5 +93,8 @@ public class OrderList implements IDisplayable {
         }
         System.out.println("Không tìm thấy mã đơn hàng!");
         return null;
+    }
+    public Order[] getOrderList(){
+        return orders;
     }
 }
