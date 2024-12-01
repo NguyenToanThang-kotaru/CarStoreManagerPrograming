@@ -36,6 +36,14 @@ public class CustomerManager {
                     HeaderFooter.printHeader("Thêm khách hàng");
                     shopCustomers.add();
                     HeaderFooter.printFooter();
+                    Customer newCustomer = shopCustomers.search(Customer.getNewestID());
+                    if(newCustomer != null){
+                        HeaderFooter.printHeader("Khách hàng vừa thêm");
+                        newCustomer.display();
+                        HeaderFooter.printFooter();
+                    } else{
+                        System.out.println("!!!Lỗi, chưa thêm khách hàng thành công");
+                    }
                     break;
                 case "3":
                     HeaderFooter.printHeader("Sửa khách hàng");
@@ -76,6 +84,7 @@ public class CustomerManager {
             while (line != null) {
                 String[] arr = line.split(",");
                 this.shopCustomers.add(new Customer(arr[1], arr[2], arr[3], arr[4], Short.parseShort(arr[5])));
+                Customer.increaseCurrentIDNumer();
                 line = input.readLine();
             }
 
