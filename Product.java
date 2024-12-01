@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Product {
@@ -10,18 +9,18 @@ public abstract class Product {
     protected long price;
     protected String color;
     protected int quantity;
-    private static ArrayList<String> checkID = new ArrayList<>();
 
     public Product() {
-        ID = "0";
-        brand = "Honda";
-        name = "product";
-        date = "2000";
+        ID = "";
+        brand = "";
+        name = "";  
+        date = "";
         price = 0;
-        color = "white";
+        color = "";
         quantity = 0;
     }
 
+    
     public Product(String ID, String brand, String name, String date, long price, String color, int quantity) {
         this.ID = ID;
         this.brand = brand;
@@ -43,6 +42,8 @@ public abstract class Product {
         this.quantity = x.quantity;
     }
 
+    
+
     public void display() {
         System.out.println("ID: " + ID);
         System.out.println("Hãng xe: " + brand);
@@ -54,17 +55,6 @@ public abstract class Product {
     }
   
     public void input() {
-        while (true) {
-            System.out.print("ID: ");
-            ID = sc.nextLine();
-            if (checkID.contains(ID)) {
-                System.out.println("Trùng ID! Vui lòng nhập lại.");
-            } else {
-                checkID.add(ID);
-                break;
-            }
-        }
-
         System.out.print("Hãng xe: ");
         brand = sc.nextLine();
         System.out.print("Tên xe: ");

@@ -1,70 +1,112 @@
 
 import java.util.Scanner;
 
-
-public class Employee extends Person{
+public class Employee extends Person {
     Scanner reader = new Scanner(System.in);
-    protected String ID;
+    private static int currentIDNumber = -1;
+    private String ID;
     private String position;
     private String startDate;
     private long salary;
-    public Employee(String ID, String name, String address, String phone, short age, String position, String startDate, long salary){
+
+    public Employee(){
+        ID = "";
+        position = "";
+        startDate = "";
+        salary = 0;
+    }
+
+    public Employee(Employee employee){
+        super((Person)employee);
+        this.ID = employee.ID;
+        this.position = employee.position;
+        this.startDate = employee.startDate;
+        this.salary = employee.salary;    
+    }
+
+    public Employee(String ID, String name, String address, String phone, short age, String position, String startDate, long salary) {
         super(name, address, phone, age);
         this.ID = ID;
         this.position = position;
         this.startDate = startDate;
         this.salary = salary;
     }
-    public String getID(){
+
+    // Tạo ra ID mới, format:
+    // flag 0 (đệm thêm '0' cho đủ chiều rộng),
+    // width 5 (chiều rộng tối thiểu), nếu ko đủ, kết hợp với flag 0 ở trên đệm thêm '0'
+    // conversion d, thể hiện số nguyên
+    private static String generateNextID(){
+        return String.format("NV-%05d", ++currentIDNumber);
+    }
+
+    // Lấy ra ID của khách hàng mới nhất
+    public static String getNewestID(){
+        return String.format("NV-%05d", currentIDNumber);
+    }
+
+    // Tăng số ID, sử dụng khi đọc file, khi khởi động chương trình
+    public static void increaseCurrentIDNumer(){
+        Employee.currentIDNumber++;
+    }
+
+    public String getID() {
         return ID;
     }
-    public void setID(String ID){
-        this. ID = ID;
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
-    public String getPosition(){
+
+    public String getPosition() {
         return position;
     }
-    public void setPosition(String position){
+
+    public void setPosition(String position) {
         this.position = position;
     }
-    public String getStartDate(){
+
+    public String getStartDate() {
         return startDate;
     }
-    public void setStartDate(String startDate){
+
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
-    public Long getSalary(){
+
+    public Long getSalary() {
         return salary;
     }
-    public void setSalary(long salary){
+
+    public void setSalary(long salary) {
         this.salary = salary;
     }
+
     @Override
-    public void input(){
+    public void input() {
         super.input();
-        
-        System.out.println("Nhập EmployeeID ");
-        this.ID=reader.nextLine();
-        System.out.println("Nhập Position  ");
-        this.position=reader.nextLine();
-        System.out.println("Nhập StartDate ");
-        this.startDate=reader.nextLine();
-        System.out.println("Nhập Salary ");
-        this.salary=reader.nextLong();
+        System.out.print("Nhập vị trí: ");
+        this.position = reader.nextLine();
+        System.out.print("Nhập ngày vào công ty: ");
+        this.startDate = reader.nextLine();
+        System.out.print("Nhập lương: ");
+        this.salary = reader.nextLong();
         reader.nextLine();
-       
+        this.ID = generateNextID();
     }
+
     @Override
-    public void display(){
+    public void display() {
         super.display();
-        System.out.println("EmployeeID "+ID);
-        System.out.println("Position "+position);
-        System.out.println("StartDate "+startDate);
-        System.out.println("Salary "+salary);
+        System.out.println("EmployeeID " + ID);
+        System.out.println("Position " + position);
+        System.out.println("StartDate " + startDate);
+        System.out.println("Salary " + salary);
     }
+
     @Override
-    public String toString(){
-        return "Employee," + ID + "," + name + ", " + address +  "," + phone  + "," + age;
+    public String toString() {
+        return "Employee," + this.ID + "," + this.name + "," + this.address + "," + this.phone + "," + this.age + ","
+                + this.position + "," + this.startDate + "," + this.salary;
     }
 }
-

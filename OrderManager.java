@@ -110,4 +110,9 @@ public class OrderManager {
             System.out.println(e);
         }
     }
+
+    public static void main(String[] args) {
+        OrderManager a = new OrderManager();
+        a.menu();
+    }
 }

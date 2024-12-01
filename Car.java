@@ -1,5 +1,6 @@
 public class Car extends Product {
     private byte seat;
+    private static int currentIDNumber = -1;
 
     public Car() {
         super();
@@ -13,13 +14,33 @@ public class Car extends Product {
 
     public Car(Car x){
         // UPCASTING
-        super((Product)x);
+        super((Product)x);        
         this.seat = x.seat;
     }
+    // Tạo ra ID mới, format:
+    // flag 0 (đệm thêm '0' cho đủ chiều rộng),
+    // width 5 (chiều rộng tối thiểu), nếu ko đủ, kết hợp với flag 0 ở trên đệm thêm '0'
+    // conversion d, thể hiện số nguyên
+    private static String generateNextID(){
+        return String.format("C-%05d", ++currentIDNumber);
+    }
+    // Lấy ra ID của khách hàng mới nhất
+
+    public static String getNewestID(){
+        return String.format("C-%05d", currentIDNumber);
+
+    }
+    // Tăng số ID, sử dụng khi đọc file, khi khởi động chương trình
+    public static void increaseCurrentIDNumer(){
+        Car.currentIDNumber++;
+    }
+
     public void input() {
         super.input();
         System.out.print("Số chỗ: ");
         seat = Byte.parseByte(sc.nextLine());
+        ID = generateNextID();
+
     }
 
     public void display() {
@@ -39,14 +60,13 @@ public class Car extends Product {
         do {
             System.out.println("---Thông tin sản phẩm hiện tại---");
             this.display();
-            System.out.println("1: Sửa ID");
-            System.out.println("2: Sửa hãng");
-            System.out.println("3: Sửa tên");
-            System.out.println("4: Sửa năm sản xuất");
-            System.out.println("5: Sửa giá");
-            System.out.println("6: Sửa màu");
-            System.out.println("7: Sửa số lượng");
-            System.out.println("8: Sửa số chỗ");
+            System.out.println("1: Sửa hãng");
+            System.out.println("2: Sửa tên");
+            System.out.println("3: Sửa năm sản xuất");
+            System.out.println("4: Sửa giá");
+            System.out.println("5: Sửa màu");
+            System.out.println("6: Sửa số lượng");
+            System.out.println("7: Sửa số phân khối");
 
 
             System.out.println("exit: Thoát");
@@ -55,41 +75,36 @@ public class Car extends Product {
             luachon = sc.nextLine();
             switch (luachon) {
                 case "1":
-                    System.out.print("Nhập ID mới: ");
-                    String newID = sc.nextLine();
-                    this.setID(newID);
-                    break;
-                case "2":
                     System.out.print("Nhập hãng mới: ");
                     String newBrand = sc.nextLine();
                     this.setBrand(newBrand);
                     break;
-                case "3":
+                case "2":
                     System.out.print("Nhập tên mới: ");
                     String newName = sc.nextLine();
                     this.setName(newName);
                     break;
-                case "4":
+                case "3":
                     System.out.print("Nhập năm sản xuất mới: ");
                     String newDate = sc.nextLine();
                     this.setDate(newDate);
                     break;
-                case "5":
+                case "4":
                     System.out.print("Nhập giá mới: ");
                     Long newPrice = Long.parseLong(sc.nextLine());
                     this.setPrice(newPrice);
                     break;
-                case "6":
+                case "5":
                     System.out.print("Nhập màu mới: ");
                     String newColor = sc.nextLine();
                     this.setColor(newColor);
                     break;
-                case "7":
+                case "6":
                     System.out.print("Nhập số lượng mới: ");
                     int newQuantity = Integer.parseInt(sc.nextLine());
                     this.setQuantity(newQuantity);
                     break;
-                case "8":
+                case "7":
                     System.out.print("Nhập số chỗ ngồi mới: ");
                     byte newSeat = Byte.parseByte(sc.nextLine());
                     this.setSeat(newSeat);
@@ -104,7 +119,7 @@ public class Car extends Product {
             }
         } while (!exit);
     }
-
+    
     @Override
     public String toString() {
         return "Car," + this.ID + "," + this.brand + "," + this.name + "," + this.date  + "," + this.price + "," + this.color + "," + this.quantity + "," + this.seat;

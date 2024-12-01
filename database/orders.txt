@@ -3,4 +3,8 @@ Car,1,Honda,name,22,1500,red,3,4
 Car,2,Huyndai,name,23,1500,red,3,6
 Order,OD-00002,KH-00001,3000,22,Đã giao
 Car,1,Honda,name,22,1500,red,3,4
+<<<<<<< HEAD
+Motorbike,3,Yamaha,name,23,1500,red,3,150,
+=======
 Motorbike,3,Yamaha,name,23,1500,red,3,150
+>>>>>>> 34027c50ed2a20b470af5440ee550228f0e50cc9
