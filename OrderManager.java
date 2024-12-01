@@ -8,7 +8,7 @@ public class OrderManager {
     private OrderList shopOrders;
     
     public OrderManager() {
-        shopOrders= new OrderList();
+        shopOrders = new OrderList();
         this.readFromFile();
     }
 
@@ -111,8 +111,7 @@ public class OrderManager {
         }
     }
 
-    public static void main(String[] args) {
-        OrderManager a = new OrderManager();
-        a.menu();
+    public void add(Order order){
+        shopOrders.add(order);
     }
 }

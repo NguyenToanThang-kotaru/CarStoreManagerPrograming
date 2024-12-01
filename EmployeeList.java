@@ -47,7 +47,7 @@ public class EmployeeList {
     }
     public Employee search(String ID){
         for(Employee employee:employees){
-            if(employee.getID().equals(ID)){
+            if(employee.getID().equalsIgnoreCase(ID)){
                 return employee;
             }
         }
@@ -125,7 +125,7 @@ public class EmployeeList {
     public void delete(String ID) {
         boolean isFound = false;
         for(int i = 0; i < length; i++){
-            if(employees[i].getID().equals(ID)){
+            if(employees[i].getID().equalsIgnoreCase(ID)){
                 isFound = true;
                 for(int j = i; j < length - 1; j++){
                     employees[j] = employees[j + 1];

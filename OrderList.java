@@ -58,25 +58,19 @@ public class OrderList implements IDisplayable {
             do{
                 System.out.println("---Thông tin đơn hàng hiện tại---");
                 order.display();
-                System.out.println("1: Sửa ID khách hàng");
-                System.out.println("2: Sửa ngày đặt hàng");
-                System.out.println("3: Sửa trạng thái đơn hàng");
+                System.out.println("1: Sửa ngày đặt hàng");
+                System.out.println("2: Sửa trạng thái đơn hàng");
                 System.out.println("exit: Thoát");
                 String select = "";
                 System.out.print("Nhập lựa chọn: ");
                 select = r.nextLine();
                 switch (select) {
                     case "1":
-                        System.out.print("Nhập ID khách hàng mới: ");
-                        String newCustomerID = r.nextLine();
-                        order.setCustomerID(newCustomerID);
-                        break;
-                    case "2":
                         System.out.print("Nhập ngày đặt hàng mới: ");
                         String newOrderDate = r.nextLine();
                         order.setOrderDate(newOrderDate);
                         break;
-                    case "3":
+                    case "2":
                         System.out.println("Trạng thái đơn hàng mới: ");
                         System.out.println("1: Đã xử lý");
                         System.out.println("2: Đã giao");
@@ -119,7 +113,7 @@ public class OrderList implements IDisplayable {
     }
     public void delete(String orderID){
         for(int i=0; i<length; i++){
-            if(orders[i].getID().equals(orderID)){
+            if(orders[i].getID().equalsIgnoreCase(orderID)){
                 System.out.println("Đã xóa đơn hàng có mã "+orderID);
                 for(int j=i ;j<length-1; j++)
                     orders[j] = orders[j+1];
@@ -137,7 +131,7 @@ public class OrderList implements IDisplayable {
     }
     public Order search(String orderID){
         for(int i=0; i<length; i++){
-            if(orders[i].getID().equals(orderID)){
+            if(orders[i].getID().equalsIgnoreCase(orderID)){
                 System.out.println("Đã tìm thấy mã đơn hàng.");
                 return orders[i];
             }

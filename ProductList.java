@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class ProductList {
     Scanner sc = new Scanner(System.in);
-    Product[] products;
-    int length;
+    private Product[] products;
+    private int length;
 
     public ProductList() {
         length = 0;
@@ -104,7 +104,7 @@ public class ProductList {
 
     public void delete(String ma) {
         for (int i = 0; i < length; i++) {
-            if (products[i].getID().equals(ma)) {
+            if (products[i].getID().equalsIgnoreCase(ma)) {
                 for (int j = i; j < length - 1; j++) {
                     products[j] = products[j + 1];
                 }
@@ -133,7 +133,7 @@ public class ProductList {
     public ProductList searchByName(String key) {
         ProductList productsNew = new ProductList();
         for (int i = 0; i < length; i++) {
-            if (products[i].getName().contains(key))
+            if (products[i].getName().toLowerCase().contains(key.toLowerCase()))
                 productsNew.add(products[i]);
         }
         return productsNew;
@@ -147,7 +147,7 @@ public class ProductList {
 
     public Product search(String Id) {
         for (int i = 0; i < length; i++) {
-            if (Id.equals(products[i].getID())) {
+            if (Id.equalsIgnoreCase(products[i].getID())) {
                 return products[i];
             }
         }
