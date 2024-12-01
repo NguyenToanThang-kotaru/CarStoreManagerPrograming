@@ -1,3 +1,6 @@
+import java.text.NumberFormat;
+import java.text.NumberFormat;
+
 public class Motorbike extends Product {
     private short CC;
     private static int currentIDNumber = -1;
@@ -42,11 +45,15 @@ public class Motorbike extends Product {
         ID = generateNextID();
     }
 
-    public void display() {
-        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n",
-                ID, brand, name, date, (int) price, color, quantity, CC);
-        System.out.println("--------------------------------------------------------------------------------");
-    }
+public void display() {
+    NumberFormat numberFormat = NumberFormat.getInstance(); // Tạo đối tượng NumberFormat
+    numberFormat.setGroupingUsed(true); // Bật tính năng nhóm số
+
+    // Hiển thị thông tin sản phẩm với giá được định dạng
+    System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
+                      ID, brand, name, date, numberFormat.format(price), color, quantity, CC);
+    System.out.println("------------------------------------------------------------------------------------------------------------------------");
+}
 
     public short getCC() {
         return CC;
@@ -61,10 +68,10 @@ public class Motorbike extends Product {
         do {
 
             System.out.println("---Thông tin sản phẩm hiện tại---");
-            System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n",
+            System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
                     "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
             System.out.println(
-                    "----------------------------------------------------------------------------------------------------------------");
+                    "------------------------------------------------------------------------------------------------------------------------");
             this.display();
             System.out.println("1: Sửa hãng");
             System.out.println("2: Sửa tên");

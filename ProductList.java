@@ -50,9 +50,9 @@ public class ProductList {
     }
 
     public void display() {
-        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n",
+        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
                 "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
-        System.out.println(  "----------------------------------------------------------------------------------------------------------------");
+        System.out.println(  "------------------------------------------------------------------------------------------------------------------------");
         for (int i = 0; i < length; i++) {
             products[i].display();
         }
