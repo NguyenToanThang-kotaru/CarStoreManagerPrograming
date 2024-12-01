@@ -95,11 +95,15 @@ public class Order implements IDisplayable {
     public void setOrderDate(String orderDate){
         this.orderDate = orderDate;
     }
-    public void calculateTotalePrice(){
+    public void setStatus(String status){
+        this.status = status;
+    }
+    public void calculateTotalePrice(double taxAndDiscount){
         for(int j=0; j<orderedProducts.getlength(); j++){
             Product product = orderedProducts.getProducts()[j];
             totalPrice += product.getPrice();
         }
+        totalPrice = totalPrice + (long)(totalPrice * taxAndDiscount);
     }
     // public void addProductToOrder(){
     //     Product x = null;
@@ -131,7 +135,9 @@ public class Order implements IDisplayable {
 
     public void addProductToOrder(Product x){
         orderedProducts.add(x);
-        calculateTotalePrice();
+    }
+    public void addProductListToOrder(ProductList x){
+        orderedProducts = x;
     }
     @Override
     public String toString(){

@@ -51,15 +51,66 @@ public class OrderList implements IDisplayable {
         String orderID = r.nextLine();
         edit(orderID);
     }
-    public void edit(String orderID){
-        for(int i=0; i<length; i++){
-            if(orders[i].getID().equals(orderID)){
-                System.out.println("Đã tìm thấy mã đơn hàng, vui lòng nhập lại thông tin:");
-                orders[i].input();
-                break;
-            }
+    public void edit(String ID) {
+        Order order = search(ID);
+        if(order != null){
+            boolean exit = false;
+            do{
+                System.out.println("---Thông tin đơn hàng hiện tại---");
+                order.display();
+                System.out.println("1: Sửa ID khách hàng");
+                System.out.println("2: Sửa ngày đặt hàng");
+                System.out.println("3: Sửa trạng thái đơn hàng");
+                System.out.println("exit: Thoát");
+                String select = "";
+                System.out.print("Nhập lựa chọn: ");
+                select = r.nextLine();
+                switch (select) {
+                    case "1":
+                        System.out.print("Nhập ID khách hàng mới: ");
+                        String newCustomerID = r.nextLine();
+                        order.setCustomerID(newCustomerID);
+                        break;
+                    case "2":
+                        System.out.print("Nhập ngày đặt hàng mới: ");
+                        String newOrderDate = r.nextLine();
+                        order.setOrderDate(newOrderDate);
+                        break;
+                    case "3":
+                        System.out.println("Trạng thái đơn hàng mới: ");
+                        System.out.println("1: Đã xử lý");
+                        System.out.println("2: Đã giao");
+                        System.out.println("3: Đã hủy");
+                        System.out.print("Nhập lựa chọn: ");
+                        byte selectStatus = r.nextByte();
+                        
+                        switch (selectStatus) {
+                            case 1:
+                                order.setStatus("Đã xử lý");
+                                break;
+                            case 2:
+                                order.setStatus("Đã giao");
+                                break;
+                            case 3:
+                                order.setStatus("Đã hủy");
+                                break;
+                            default:
+                                System.out.println("Không tìm thấy lựa chọn!");
+                                break;
+                        }
+                        break;
+                    case "exit":
+                        exit = true;
+                        break;
+                    default:
+                        System.out.println("!------Lỗi------!");
+                        System.out.println("Nếu muốn thoát vui lòng nhập \"exit\"");
+                        break;
+                }
+            } while(!exit);
+        } else{
+            System.out.println("Không tìm thấy khách hàng!!!");
         }
-        System.out.println("Không tìm thấy mã đơn hàng!");
     }
     public void delete(){
         System.out.print("Nhập mã đơn hàng muốn xóa: ");
