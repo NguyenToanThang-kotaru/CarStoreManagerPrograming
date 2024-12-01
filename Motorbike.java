@@ -1,34 +1,37 @@
-public class Motorbike extends Product{
+public class Motorbike extends Product {
     private short CC;
     private static int currentIDNumber = -1;
-    public Motorbike(){
+
+    public Motorbike() {
         super();
         CC = 100;
 
-    }    
-
-    public Motorbike(String ID, String brand, String name, String date, long price, String color, int quantity,short CC){
-        super(ID, brand, name, date, price, color, quantity);
-        this.CC=CC;
     }
 
-    public Motorbike(Motorbike x){
+    public Motorbike(String ID, String brand, String name, String date, long price, String color, int quantity,
+            short CC) {
+        super(ID, brand, name, date, price, color, quantity);
+        this.CC = CC;
+    }
+
+    public Motorbike(Motorbike x) {
         // UPCASTING
-        super((Product)x);
+        super((Product) x);
         this.CC = x.CC;
     }
 
-    private static String generateNextID(){
+    private static String generateNextID() {
         return String.format("M-%05d", ++currentIDNumber);
     }
     // Lấy ra ID của khách hàng mới nhất
 
-    public static String getNewestID(){
+    public static String getNewestID() {
         return String.format("M-%05d", currentIDNumber);
 
     }
+
     // Tăng số ID, sử dụng khi đọc file, khi khởi động chương trình
-    public static void increaseCurrentIDNumer(){
+    public static void increaseCurrentIDNumer() {
         Motorbike.currentIDNumber++;
     }
 
@@ -40,22 +43,28 @@ public class Motorbike extends Product{
     }
 
     public void display() {
-        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n", 
-                          ID, brand, name, date, (int) price, color, quantity, CC);
+        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n",
+                ID, brand, name, date, (int) price, color, quantity, CC);
         System.out.println("--------------------------------------------------------------------------------");
     }
 
-    public short getCC(){
+    public short getCC() {
         return CC;
     }
 
-    public void setCC(short CC){
+    public void setCC(short CC) {
         this.CC = CC;
     }
+
     public void edit() {
         boolean exit = false;
         do {
+
             System.out.println("---Thông tin sản phẩm hiện tại---");
+            System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n",
+                    "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
+            System.out.println(
+                    "----------------------------------------------------------------------------------------------------------------");
             this.display();
             System.out.println("1: Sửa hãng");
             System.out.println("2: Sửa tên");
@@ -64,7 +73,6 @@ public class Motorbike extends Product{
             System.out.println("5: Sửa màu");
             System.out.println("6: Sửa số lượng");
             System.out.println("7: Sửa số phân khối");
-
 
             System.out.println("exit: Thoát");
             String luachon = "";
@@ -116,8 +124,10 @@ public class Motorbike extends Product{
             }
         } while (!exit);
     }
+
     @Override
     public String toString() {
-        return "Motorbike," + ID + "," + brand + "," + name + "," + date + "," + price + "," + color + "," + quantity + "," + CC;
+        return "Motorbike," + ID + "," + brand + "," + name + "," + date + "," + price + "," + color + "," + quantity
+                + "," + CC;
     }
 }

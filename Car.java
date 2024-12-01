@@ -12,26 +12,29 @@ public class Car extends Product {
         this.seat = seat;
     }
 
-    public Car(Car x){
+    public Car(Car x) {
         // UPCASTING
-        super((Product)x);        
+        super((Product) x);
         this.seat = x.seat;
     }
+
     // Tạo ra ID mới, format:
     // flag 0 (đệm thêm '0' cho đủ chiều rộng),
-    // width 5 (chiều rộng tối thiểu), nếu ko đủ, kết hợp với flag 0 ở trên đệm thêm '0'
+    // width 5 (chiều rộng tối thiểu), nếu ko đủ, kết hợp với flag 0 ở trên đệm thêm
+    // '0'
     // conversion d, thể hiện số nguyên
-    private static String generateNextID(){
+    private static String generateNextID() {
         return String.format("C-%05d", ++currentIDNumber);
     }
     // Lấy ra ID của khách hàng mới nhất
 
-    public static String getNewestID(){
+    public static String getNewestID() {
         return String.format("C-%05d", currentIDNumber);
 
     }
+
     // Tăng số ID, sử dụng khi đọc file, khi khởi động chương trình
-    public static void increaseCurrentIDNumer(){
+    public static void increaseCurrentIDNumer() {
         Car.currentIDNumber++;
     }
 
@@ -43,23 +46,29 @@ public class Car extends Product {
 
     }
 
-    public void display() {        
-        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n", 
-                          ID, brand, name, date, (int) price, color, quantity, seat);
-        System.out.println("----------------------------------------------------------------------------------------------------------------");
+    public void display() {
+        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n",
+                ID, brand, name, date, (int) price, color, quantity, seat);
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------------------");
     }
-    
-    public byte getSeat(){
+
+    public byte getSeat() {
         return seat;
     }
-    
-    public void setSeat(byte seat){
+
+    public void setSeat(byte seat) {
         this.seat = seat;
     }
+
     public void edit() {
         boolean exit = false;
         do {
             System.out.println("---Thông tin sản phẩm hiện tại---");
+            System.out.printf("%-10s | %-15s | %-13s | %-13s | %-10s | %-10s | %-10s | %-10s%n",
+                    "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
+            System.out.println(
+                    "----------------------------------------------------------------------------------------------------------------");
             this.display();
             System.out.println("1: Sửa hãng");
             System.out.println("2: Sửa tên");
@@ -68,7 +77,6 @@ public class Car extends Product {
             System.out.println("5: Sửa màu");
             System.out.println("6: Sửa số lượng");
             System.out.println("7: Sửa số phân khối");
-
 
             System.out.println("exit: Thoát");
             String luachon = "";
@@ -120,9 +128,10 @@ public class Car extends Product {
             }
         } while (!exit);
     }
-    
+
     @Override
     public String toString() {
-        return "Car," + this.ID + "," + this.brand + "," + this.name + "," + this.date  + "," + this.price + "," + this.color + "," + this.quantity + "," + this.seat;
+        return "Car," + this.ID + "," + this.brand + "," + this.name + "," + this.date + "," + this.price + ","
+                + this.color + "," + this.quantity + "," + this.seat;
     }
 }
