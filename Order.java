@@ -53,9 +53,10 @@ public class Order implements IDisplayable {
     }
     public void input(){
         ID = generateNextID();
+        System.out.print("Nhập mã khách hàng: ");
+        customerID = r.nextLine();
         System.out.print("Nhập ngày đặt: ");
         orderDate = r.nextLine();
-        totalPrice = 0;
     }
     public void display(){
         System.out.println("Mã đơn: "+ID);
