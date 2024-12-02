@@ -84,8 +84,8 @@ public class Order implements IDisplayable {
     public String getOrderDate(){
         return orderDate;
     }
-    public ProductList getOrderedProducts(){
-        return orderedProducts;
+    public Product[] getOrderedProducts(){
+        return orderedProducts.getProducts();
     }
     public void setCustomerID(String customerID){
         this.customerID = customerID;

@@ -93,7 +93,7 @@ public class OrderManager {
             for(int i = 0; i < orders.length; i++){
                 fw.write(orders[i].toString());
                 fw.write("\r\n");
-                Product[] orderedProducts = orders[i].getOrderedProducts().getProducts();
+                Product[] orderedProducts = orders[i].getOrderedProducts();
                 for(Product orderedProduct : orderedProducts){
                     fw.write(orderedProduct.toString());
                     fw.write("\r\n");

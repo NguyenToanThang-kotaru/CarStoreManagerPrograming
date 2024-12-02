@@ -1,14 +1,9 @@
-import javax.sound.midi.SysexMessage;
 
 public final class HeaderFooter {
     private static String title;
 
-    private HeaderFooter() {
-
-    }
-
     public static void printHeader(String title) {
-        System.out.println("===========================" + title + "===========================\n");
+        System.out.println("===========================" + title + "===========================");
         HeaderFooter.title = title;
     }
 
@@ -24,12 +19,11 @@ public final class HeaderFooter {
                     "------------------------------------------------------------------------------------------------------------------------");
         } else
         if(type.equalsIgnoreCase("motorbike")){
-
+            System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n", "ID", "Hãng xe", "Tên xe",
+                    "Năm sản xuất", "Giá", "Màu", "Số lượng", "Phân khối");
+            System.out.println(
+                    "------------------------------------------------------------------------------------------------------------------------");
         }
-    }
-
-    public static void printProductToSellHeader(){
-
     }
 
     public static void printCustomerHeader(){

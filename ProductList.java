@@ -1,3 +1,4 @@
+import java.lang.module.ModuleReader;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -50,9 +51,40 @@ public class ProductList {
     }
     
     public void display() {
-        // HeaderFooter.printProductHeader("car");
-        for (int i = 0; i < length; i++) {
-            products[i].display();
+        int cntCars = 0;
+        int cntMotorbikes = 0;
+        for(int i = 0; i < length; i++){
+            if(products[i] instanceof Car){
+                cntCars++;
+            }
+        }
+
+        for(int i = 0; i < length; i++){
+            if(products[i] instanceof Motorbike){
+                cntMotorbikes++;
+            }
+        }
+
+        if(cntCars > 0){
+            HeaderFooter.printHeader("Car");
+            HeaderFooter.printProductHeader("car");
+            for (int i = 0; i < length; i++) {
+                if(products[i] instanceof Car){
+                    products[i].display();
+                }
+            }
+            HeaderFooter.printFooter();
+        }
+
+        if(cntMotorbikes > 0){
+            HeaderFooter.printHeader("Motorbike");
+            HeaderFooter.printProductHeader("motorbike");
+            for (int i = 0; i < length; i++) {
+                if(products[i] instanceof Motorbike){
+                    products[i].display();
+                }
+            }
+            HeaderFooter.printFooter();
         }
     }
 

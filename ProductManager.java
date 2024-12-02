@@ -13,13 +13,27 @@ public class ProductManager {
     }
 
     public void showProducts(ProductList productList) {
+        int stt = 1;
         Product[] products = productList.getProducts();
-        int productsLength = productList.getLength();
-        for (int i = 0; i < productsLength; i++) {
-            System.out.println((i + 1) + ".");
-            System.out.println("Tên: " + products[i].getName() + "   " + "Hãng: " + products[i].getBrand());
-            System.out.println("Màu: " + products[i].getColor() + "   " + "Giá: " + products[i].getPrice());
-            System.out.print("\n");
+        HeaderFooter.printHeader("Car");
+        System.out.printf("%-6s", "STT");
+        HeaderFooter.printProductHeader("car");
+        for(Product product : products){
+            if(product instanceof Car){
+                System.out.printf("%-6s", stt + ".");
+                product.display();
+                stt++;
+            }
+        }
+        HeaderFooter.printHeader("Motorbike");
+        System.out.printf("%-5s", "STT");
+        HeaderFooter.printProductHeader("motorbike");
+        for(Product product : products){
+            if(product instanceof Motorbike){
+                System.out.printf("%-6s", stt + ".");
+                product.display();
+                stt++;
+            }
         }
 
         System.out.println("exit. Thoát");
@@ -55,7 +69,7 @@ public class ProductManager {
                                     xacnhan = sc.nextLine();
                                 } while (!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
                                 if (xacnhan.equalsIgnoreCase("Y")) {
-                                    Product selectedProduct = filteredProducts.getProducts()[index - 1];
+                                    Product selectedProduct = shopProducts.getProducts()[index - 1];
                                     Product check = currentProducts.search(selectedProduct.getID());
                                     if(check == null){
                                         selectedProduct.setQuantity(1);
@@ -128,8 +142,9 @@ public class ProductManager {
                         break;
                     }
                     while (true) {
-                        // HeaderFooter
+                        HeaderFooter.printHeader("Các sản phẩm có tên chứa " + name);
                         showProducts(filteredProducts);
+                        HeaderFooter.printFooter();
                         String luachonSP = "";
                         boolean isValid = false;
                         luachonSP = sc.nextLine();

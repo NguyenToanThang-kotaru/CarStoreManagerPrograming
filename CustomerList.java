@@ -30,10 +30,9 @@ public class CustomerList {
         if(length == 0){
             System.out.println("\nKhông có khách hàng nào\n");
         } else{
-            System.out.printf("\n");
+            HeaderFooter.printCustomerHeader();
             for(Customer customer:customers){
                 customer.display();
-                System.out.printf("\n");
             }
         }
     }
@@ -163,7 +162,17 @@ public class CustomerList {
         return length;
     }
 
+    public void addOrderToOrderHistoryOfCustomer(String ID, Order order){
+        for(Customer customer : customers){
+            if(customer.getID().equals(ID)){
+                customer.addOrderToOrderHistory(order);
+                break;
+            }
+        }
+    }
+
     public Customer[] getCustomers(){
-        return this.customers;
+        Customer[] copyCustomers = Arrays.copyOf(this.customers, this.length);
+        return copyCustomers;
     }
 }
