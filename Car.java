@@ -40,7 +40,7 @@ public class Car extends Product {
     public static void increaseCurrentIDNumer() {
         Car.currentIDNumber++;
     }
-
+    @Override
     public void input() {
         super.input();
         System.out.print("Số chỗ: ");
@@ -48,7 +48,7 @@ public class Car extends Product {
         ID = generateNextID();
 
     }
-
+    @Override
     public void display() {
         NumberFormat numberFormat = NumberFormat.getInstance(); // Tạo đối tượng NumberFormat
         numberFormat.setGroupingUsed(true); // Bật tính năng nhóm số
@@ -66,13 +66,12 @@ public class Car extends Product {
     public void setSeat(byte seat) {
         this.seat = seat;
     }
-
+    @Override
     public void edit() {
         boolean exit = false;
         do {
             System.out.println("---Thông tin sản phẩm hiện tại---");
-            System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
-                    "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
+            HeaderFooter.printProductHeader("car");
             System.out.println(
                     "------------------------------------------------------------------------------------------------------------------------");
             this.display();

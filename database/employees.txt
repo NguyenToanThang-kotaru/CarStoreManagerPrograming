@@ -1,0 +1,3 @@
+Employee,NV-00000,Nguy?n Van A,123 An Duong Vuong,0912454893,34,Qu?n ly marketing,09-08-2010,25000
+Employee,NV-00001,Tr?n Van B,456 Nguy?n Trai,09568726316,24,K? thu?t vi�n,07-04-2020,15000
+Employee,NV-00002,Nguy?n Th? C,678 Nguy?n Van C?,0888284109,35,Gi�m d?c,09-05-2009,40000

@@ -67,8 +67,7 @@ public void display() {
         do {
 
             System.out.println("---Thông tin sản phẩm hiện tại---");
-            System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
-                    "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
+            HeaderFooter.printProductHeader("motorbike");
             System.out.println(
                     "------------------------------------------------------------------------------------------------------------------------");
             this.display();

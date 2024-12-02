@@ -1,3 +1,4 @@
+import java.lang.module.ModuleReader;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -50,11 +51,40 @@ public class ProductList {
     }
     
     public void display() {
-        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
-                "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
-        System.out.println(  "------------------------------------------------------------------------------------------------------------------------");
-        for (int i = 0; i < length; i++) {
-            products[i].display();
+        int cntCars = 0;
+        int cntMotorbikes = 0;
+        for(int i = 0; i < length; i++){
+            if(products[i] instanceof Car){
+                cntCars++;
+            }
+        }
+
+        for(int i = 0; i < length; i++){
+            if(products[i] instanceof Motorbike){
+                cntMotorbikes++;
+            }
+        }
+
+        if(cntCars > 0){
+            HeaderFooter.printHeader("Car");
+            HeaderFooter.printProductHeader("car");
+            for (int i = 0; i < length; i++) {
+                if(products[i] instanceof Car){
+                    products[i].display();
+                }
+            }
+            HeaderFooter.printFooter();
+        }
+
+        if(cntMotorbikes > 0){
+            HeaderFooter.printHeader("Motorbike");
+            HeaderFooter.printProductHeader("motorbike");
+            for (int i = 0; i < length; i++) {
+                if(products[i] instanceof Motorbike){
+                    products[i].display();
+                }
+            }
+            HeaderFooter.printFooter();
         }
     }
 
@@ -165,8 +195,27 @@ public class ProductList {
         return null;
     }
 
+    public void increaseQuantityByOneOfProduct(String Id){
+        for(int i = 0; i < length; i++){
+            if(Id.equals(products[i].getID())){
+                products[i].quantity++;
+                break;
+            }
+        }
+    }
+
+    public void decreaseQuantityByOneOfProduct(String Id){
+        for(int i = 0; i < length; i++){
+            if(Id.equals(products[i].getID())){
+                products[i].quantity--;
+                break;
+            }
+        }
+    }
+
     public Product[] getProducts() {
-        return this.products;
+        Product[] copyProducts = Arrays.copyOf(this.products, this.length);
+        return copyProducts;
     }
 
     // public void getList() {

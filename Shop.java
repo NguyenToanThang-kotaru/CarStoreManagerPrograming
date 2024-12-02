@@ -4,7 +4,7 @@ public class Shop {
     private CustomerManager customerManager = new CustomerManager();
     private ProductManager productManager = new ProductManager();
     private OrderManager orderManager = new OrderManager();
-
+    private EmployeeManager employeeManager = new EmployeeManager();
     private void muaHang(){
         ProductList currentProducts = new ProductList();
         currentProducts = productManager.buyProducts();
@@ -15,25 +15,31 @@ public class Shop {
             Customer customer = customerManager.searchByPhone(phone);
             if(customer == null){
                 System.out.println("Khách hàng chưa tồn tại, mời thêm mới");
+
                 HeaderFooter.printHeader("Thêm khách hàng mới");
                 customerManager.add();
                 HeaderFooter.printFooter();
+
                 HeaderFooter.printHeader("Thông tin khách hàng mới");
-                customerManager.search(Customer.getLatestID()).display();
-                HeaderFooter.printFooter();
+                customer = customerManager.search(Customer.getLatestID());
             } else{
                 HeaderFooter.printHeader("Thông tin khách hàng");
-                customer.display();
-                HeaderFooter.printFooter();
             }
+
+            HeaderFooter.printCustomerHeader();
+            customer.display();
+            HeaderFooter.printFooter();
 
             Order newOrder = new Order();
             newOrder.input();
             newOrder.addProductListToOrder(currentProducts);
+
             HeaderFooter.printHeader("Thông tin đơn hàng vừa đặt");
             newOrder.display();
             HeaderFooter.printFooter();
+            
             orderManager.add(newOrder);
+            customerManager.addOrderToOrderHistoryOfCustomer(customer.getID(), newOrder);
         } else{
             System.out.println("Chưa có sản phẩm nào được mua");
         }
@@ -79,6 +85,7 @@ public class Shop {
             System.out.println("2. Admin");
             System.out.println("exit. Thoát");
             String luachon = "";
+            System.out.print("Nhập lựa chọn của bạn: ");
             luachon = sc.nextLine();
             switch (luachon) {
                 case "1":

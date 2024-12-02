@@ -1,7 +1,6 @@
-Customer,KH-00000,Nhat HUy,o dau do,3213213,15
-Customer,KH-00001,Khong phai Nhat Huy,32132183,56,5
-Customer,KH-00002,another Huy,From somewhere,123132321,5
-Customer,KH-00003,Anotherone,asdjasdakjsd,1424,55
-Customer,KH-00004,Huyyyyyyyyyyyyy,3132132,4214214,55
-Customer,KH-00005,Nhat Huy,somwhere,12345678,15
-Customer,KH-00006,Nhat Huy thu 2,Dddadk,123456789,15
+Customer,KH-00000,Nhat Huy,hang cay xanh,123,19
+Order,OD-00005,KH-0000,0,2024-12-12,Đang xử lýCar,C-00001,Honda,Civic,2022-05-20,800000000,Trắng,3,4
+Car,C-00025,Mazda,CX-8,2023-02-20,1300000000,Bạc,1,7
+Car,C-00019,Hyundai,Palisade,2023-05-01,1200000000,Xanh,1,7
+Car,C-00018,Land Rover,Range Rover,2022-03-10,2500000000,Xám,1,7
+Car,C-00016,Nissan,X-Trail,2023-02-18,550000000,Xám,1,7
