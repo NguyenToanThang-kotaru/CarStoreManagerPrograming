@@ -66,7 +66,13 @@ public abstract class Product {
         System.out.print("Màu: ");
         color = sc.nextLine();
         System.out.print("Số lượng: ");
-        quantity = Integer.parseInt(sc.nextLine());
+        String check = sc.nextLine();
+        while (!Validation.isInteger(check)) {
+            System.out.println("Vui lòng nhập số lượng hợp lệ! \n");
+            System.out.print("Số chỗ: ");
+            check = sc.nextLine();
+        }
+        quantity = Integer.parseInt(check);
 
     }
 // ---------------------------------------------Get

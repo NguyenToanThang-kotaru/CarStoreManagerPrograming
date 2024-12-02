@@ -27,7 +27,7 @@ public class Motorbike extends Product {
     }
     // Lấy ra ID của khách hàng mới nhất
 
-    public static String getLatestID () {
+    public static String getLatestID() {
         return String.format("M-%05d", currentIDNumber);
 
     }
@@ -36,23 +36,30 @@ public class Motorbike extends Product {
     public static void increaseCurrentIDNumer() {
         Motorbike.currentIDNumber++;
     }
-
+    @Override
     public void input() {
         super.input();
         System.out.print("Phân khối: ");
-        CC = Byte.parseByte(sc.nextLine());
+        String check = sc.nextLine();
+        while (!Validation.isShort(check)) {
+            System.out.println("Vui lòng nhập số phân khối hợp lệ! \n");  
+            System.out.print("Phân khối: ");
+            check = sc.nextLine();
+        }
+        CC = Short.parseShort(check);
         ID = generateNextID();
     }
 
-public void display() {
-    NumberFormat numberFormat = NumberFormat.getInstance(); // Tạo đối tượng NumberFormat
-    numberFormat.setGroupingUsed(true); // Bật tính năng nhóm số
+    public void display() {
+        NumberFormat numberFormat = NumberFormat.getInstance(); // Tạo đối tượng NumberFormat
+        numberFormat.setGroupingUsed(true); // Bật tính năng nhóm số
 
-    // Hiển thị thông tin sản phẩm với giá được định dạng
-    System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
-                      ID, brand, name, date, numberFormat.format(price), color, quantity, CC);
-    System.out.println("------------------------------------------------------------------------------------------------------------------------");
-}
+        // Hiển thị thông tin sản phẩm với giá được định dạng
+        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
+                ID, brand, name, date, numberFormat.format(price), color, quantity, CC);
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------");
+    }
 
     public short getCC() {
         return CC;

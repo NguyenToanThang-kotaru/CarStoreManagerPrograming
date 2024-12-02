@@ -16,3 +16,6 @@ Car,C-00025,Mazda,CX-8,2023-02-20,1300000000,Bạc,1,7
 Car,C-00019,Hyundai,Palisade,2023-05-01,1200000000,Xanh,1,7
 Car,C-00018,Land Rover,Range Rover,2022-03-10,2500000000,Xám,1,7
 Car,C-00016,Nissan,X-Trail,2023-02-18,550000000,Xám,1,7
+Order,OD-00006,toanthangne,0,3-12,Đang xử lý
+Motorbike,M-00018,Honda,SH150i,2021-08-20,700000000,Bạc,1,2
+Car,C-00001,Honda,Civic,2022-05-20,800000000,Trắng,1,4
