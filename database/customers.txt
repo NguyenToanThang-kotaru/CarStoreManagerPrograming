@@ -5,3 +5,4 @@ Customer,KH-00003,Anotherone,asdjasdakjsd,1424,55
 Customer,KH-00004,Huyyyyyyyyyyyyy,3132132,4214214,55
 Customer,KH-00005,Nhat Huy,somwhere,12345678,15
 Customer,KH-00006,Nhat Huy thu 2,Dddadk,123456789,15
+Customer,KH-00007,Huy,A,123,154

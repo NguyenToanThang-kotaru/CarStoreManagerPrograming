@@ -55,7 +55,16 @@ public class ProductManager {
                                     xacnhan = sc.nextLine();
                                 } while (!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
                                 if (xacnhan.equalsIgnoreCase("Y")) {
-                                    currentProducts.add(shopProducts.getProducts()[index - 1]);
+                                    Product selectedProduct = filteredProducts.getProducts()[index - 1];
+                                    Product check = currentProducts.search(selectedProduct.getID());
+                                    if(check == null){
+                                        selectedProduct.setQuantity(1);
+                                        currentProducts.add(selectedProduct);
+                                        shopProducts.decreaseQuantityByOneOfProduct(selectedProduct.getID());
+                                    } else{
+                                        currentProducts.increaseQuantityByOneOfProduct(selectedProduct.getID());
+                                        shopProducts.decreaseQuantityByOneOfProduct(selectedProduct.getID());
+                                    }
                                 }
                             }
                         }
@@ -89,7 +98,20 @@ public class ProductManager {
                                     xacnhan = sc.nextLine();
                                 } while(!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
                                 if(xacnhan.equalsIgnoreCase("Y")){
-                                    currentProducts.add(filteredProducts.getProducts()[index - 1]);
+                                    Product selectedProduct = filteredProducts.getProducts()[index - 1];
+                                    Product check = currentProducts.search(selectedProduct.getID());
+                                    if(check == null){
+                                        selectedProduct.setQuantity(1);
+                                        currentProducts.add(selectedProduct);
+                                    } else{
+                                        Product[] products = currentProducts.getProducts();
+                                        for(Product product : products){
+                                            if(product.getID().equals(selectedProduct.getID())){
+                                                product.setQuantity(product.getQuantity() + 1);
+                                                break;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -124,15 +146,20 @@ public class ProductManager {
                                     xacnhan = sc.nextLine();
                                 } while (!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
                                 if (xacnhan.equalsIgnoreCase("Y")) {
-                                    // Product selectedProduct = filteredProducts.getProducts()[index - 1];
-                                    // Product existedProduct = currentProducts.search(selectedProduct.getID());
-                                    // if(existedProduct == null){
-                                    //     selectedProduct.setQuantity(1);
-                                    //     currentProducts.add(selectedProduct);
-                                    // } else{
-                                        
-
-                                    // }
+                                    Product selectedProduct = filteredProducts.getProducts()[index - 1];
+                                    Product check = currentProducts.search(selectedProduct.getID());
+                                    if(check == null){
+                                        selectedProduct.setQuantity(1);
+                                        currentProducts.add(selectedProduct);
+                                    } else{
+                                        Product[] products = currentProducts.getProducts();
+                                        for(Product product : products){
+                                            if(product.getID().equals(selectedProduct.getID())){
+                                                product.setQuantity(product.getQuantity() + 1);
+                                                break;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

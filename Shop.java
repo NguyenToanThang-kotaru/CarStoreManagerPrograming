@@ -31,7 +31,8 @@ public class Shop {
             newOrder.input();
             newOrder.addProductListToOrder(currentProducts);
             HeaderFooter.printHeader("Thông tin đơn hàng vừa đặt");
-            newOrder.display();
+            // newOrder.display();
+            currentProducts.display();
             HeaderFooter.printFooter();
             orderManager.add(newOrder);
         } else{

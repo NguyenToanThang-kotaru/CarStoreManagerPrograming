@@ -163,6 +163,24 @@ public class ProductList {
         return null;
     }
 
+    public void increaseQuantityByOneOfProduct(String Id){
+        for(int i = 0; i < length; i++){
+            if(Id.equals(products[i].getID())){
+                products[i].quantity++;
+                break;
+            }
+        }
+    }
+
+    public void decreaseQuantityByOneOfProduct(String Id){
+        for(int i = 0; i < length; i++){
+            if(Id.equals(products[i].getID())){
+                products[i].quantity--;
+                break;
+            }
+        }
+    }
+
     public Product[] getProducts() {
         Product[] copyProducts = Arrays.copyOf(this.products, this.length);
         return copyProducts;
