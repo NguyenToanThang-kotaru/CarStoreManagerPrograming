@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Order implements IDisplayable {
@@ -59,12 +60,13 @@ public class Order implements IDisplayable {
         orderDate = r.nextLine();
     }
     public void display(){
-        System.out.println("Mã đơn: "+ID);
-        System.out.println("Mã khách hàng: "+customerID);
-        System.out.println("Trạng thái: "+status);
-        System.out.println("Ngày đặt: "+orderDate);
-        System.out.println("Giá đơn: "+getTotalPrice());
-        System.out.println("Danh sách xe: ");
+        NumberFormat numberFormat = NumberFormat.getInstance(); // Tạo đối tượng NumberFormat
+        numberFormat.setGroupingUsed(true); // Bật tính năng nhóm số
+        // Hiển thị thông tin sản phẩm với giá được định dạng
+        System.out.printf("%-12s | %-13s | %-13s | %-13s | %-10s%n",
+        ID, customerID, numberFormat.format(totalPrice), orderDate, status);
+        System.out.println("---------------------------------------------------------------------------------------------------");
+        HeaderFooter.printHeader("Danh sách sản phẩm đã đặt:");
         if(orderedProducts != null)
             orderedProducts.display();
         else

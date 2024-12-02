@@ -1,6 +1,6 @@
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.BufferedReader;
 import java.util.Scanner;
 
 public class OrderManager {
@@ -17,10 +17,9 @@ public class OrderManager {
         do{
             HeaderFooter.printHeader("Menu");
             System.out.println("1: Xem đơn hàng");
-            System.out.println("2: Thêm đơn hàng");
-            System.out.println("3: Sửa thông tin đơn hàng");
-            System.out.println("4: Xoá đơn hàng");
-            System.out.println("5: Tìm đơn hàng");
+            System.out.println("2: Sửa thông tin đơn hàng");
+            System.out.println("3: Xoá đơn hàng");
+            System.out.println("4: Tìm đơn hàng");
             System.out.println("exit: Thoát");
             String select = "";
             System.out.print("Nhập lựa chọn: ");
@@ -32,21 +31,16 @@ public class OrderManager {
                     HeaderFooter.printFooter();
                     break;
                 case "2":
-                    HeaderFooter.printHeader("Thêm đơn hàng");
-                    shopOrders.add();
-                    HeaderFooter.printFooter();
-                    break;
-                case "3":
                     HeaderFooter.printHeader("Sửa đơn hàng");
                     shopOrders.edit();
                     HeaderFooter.printFooter();
                     break;
-                case "4":
+                case "3":
                     HeaderFooter.printHeader("Xoá đơn hàng");
                     shopOrders.delete();
                     HeaderFooter.printFooter();
                     break;
-                case "5":
+                case "4":
                     HeaderFooter.printHeader("Tìm kiếm đơn hàng");
                     Order order = shopOrders.search();
                     if(order != null){
@@ -113,5 +107,9 @@ public class OrderManager {
 
     public void add(Order order){
         shopOrders.add(order);
+    }
+    public static void main(String[] args) {
+        OrderManager om = new OrderManager();
+        om.menu();
     }
 }
