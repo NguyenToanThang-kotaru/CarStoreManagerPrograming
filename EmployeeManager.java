@@ -84,7 +84,7 @@ public class EmployeeManager {
                     if (employee != null) {
                         employee.display();
                     } else {
-                        System.out.println("Không tìm thấy sản phẩm!!!");
+                        System.out.println("Không tìm thấy nhân viên!!!");
                     }
                     HeaderFooter.printFooter();
                     break;
