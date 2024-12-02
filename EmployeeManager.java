@@ -15,7 +15,7 @@ public class EmployeeManager {
 
     public void readFromFile(){
         try {
-            BufferedReader input = new BufferedReader(new FileReader("./database/employee.txt"));
+            BufferedReader input = new BufferedReader(new FileReader("./database/employees.txt"));
             String line = input.readLine();
             while (line != null) {
                 String[] arr = line.split(",");
@@ -33,7 +33,7 @@ public class EmployeeManager {
     public void writeToFile(){
         Employee[] employees = shopEmployee.getEmployees();
         try {
-            FileWriter fw = new FileWriter("./database/employee.txt");
+            FileWriter fw = new FileWriter("./database/employees.txt");
             for(Employee employee : employees){
                 fw.write(employee.toString());
                 fw.write("\r\n");
