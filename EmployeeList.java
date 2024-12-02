@@ -143,6 +143,7 @@ public class EmployeeList {
         }
     }
     public Employee[] getEmployees(){
-        return this.employees;
+        Employee[] copyEmployees = Arrays.copyOf(this.employees, this.length);
+        return copyEmployees;
     }    
 }
