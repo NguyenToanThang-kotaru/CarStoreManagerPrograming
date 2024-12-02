@@ -46,7 +46,7 @@ public class Employee extends Person {
     }
 
     // Tăng số ID, sử dụng khi đọc file, khi khởi động chương trình
-    public static void increaseCurrentIDNumer(){
+    public static void increaseCurrentIDNumber(){
         Employee.currentIDNumber++;
     }
 
