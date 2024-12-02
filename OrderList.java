@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class OrderList implements IDisplayable {
     Scanner r = new Scanner(System.in);
     private Order orders[];
-    private static int length = 0;
+    private int length = 0;
     public OrderList(){
         length = 0;
         orders = new Order[0];
@@ -16,7 +16,7 @@ public class OrderList implements IDisplayable {
         length = n;
         orders = Arrays.copyOf(orderlist, n);
     }
-    public static int getLength(){
+    public int getLength(){
         return length;
     }
     public void input(){
