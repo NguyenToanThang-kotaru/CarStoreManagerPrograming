@@ -43,7 +43,7 @@ public class Order implements IDisplayable {
     }
 
     // Lấy ra ID của khách hàng mới nhất
-    public static String getNewestID(){
+    public static String getLatestID (){
         return String.format("OD-%05d", currentIDNumber);
     }
 
@@ -62,7 +62,7 @@ public class Order implements IDisplayable {
         System.out.println("Mã khách hàng: "+customerID);
         System.out.println("Trạng thái: "+status);
         System.out.println("Ngày đặt: "+orderDate);
-        System.out.println("Giá đơn: "+totalPrice);
+        System.out.println("Giá đơn: "+getTotalPrice());
         System.out.println("Danh sách xe: ");
         if(orderedProducts != null)
             orderedProducts.display();
@@ -81,9 +81,6 @@ public class Order implements IDisplayable {
     public String getOrderDate(){
         return orderDate;
     }
-    public long getTotalPrice(){
-        return totalPrice;
-    }
     public ProductList getOrderedProducts(){
         return orderedProducts;
     }
@@ -96,12 +93,18 @@ public class Order implements IDisplayable {
     public void setStatus(String status){
         this.status = status;
     }
-    public void calculateTotalePrice(double taxAndDiscount){
-        for(int j=0; j<orderedProducts.getlength(); j++){
+    public long calculateTotalePrice(){
+        long sum = 0;
+        for(int j = 0; j < orderedProducts.getLength(); j++){
             Product product = orderedProducts.getProducts()[j];
-            totalPrice += product.getPrice();
+            sum += product.getPrice();
         }
-        totalPrice = totalPrice + (long)(totalPrice * taxAndDiscount);
+
+        return sum;
+    }
+    public long getTotalPrice(){
+        totalPrice = calculateTotalePrice();
+        return totalPrice;
     }
     // public void addProductToOrder(){
     //     Product x = null;
@@ -135,7 +138,9 @@ public class Order implements IDisplayable {
         orderedProducts.add(x);
     }
     public void addProductListToOrder(ProductList x){
-        orderedProducts = x;
+        for(int i = 0; i < x.getLength(); i++){
+            this.addProductToOrder(x.getProducts()[i]);
+        }
     }
     @Override
     public String toString(){

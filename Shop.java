@@ -5,28 +5,39 @@ public class Shop {
     private ProductManager productManager = new ProductManager();
     private OrderManager orderManager = new OrderManager();
 
-    private ProductList currentProducts = new ProductList();
     private void muaHang(){
+        ProductList currentProducts = new ProductList();
         currentProducts = productManager.buyProducts();
-    }
 
-    private void taoDonHang(){
-        System.out.print("Nhập số điện thoại: ");
-        String phone = sc.nextLine();
-        Customer customer = customerManager.searchByPhone(phone);
-        if(customer == null){
-            System.out.println("Khách hàng chưa tồn tại, mời thêm mới");
-            customerManager.add();
+        if(currentProducts.getLength() > 0){
+            System.out.print("Nhập số điện thoại: ");
+            String phone = sc.nextLine();
+            Customer customer = customerManager.searchByPhone(phone);
+            if(customer == null){
+                System.out.println("Khách hàng chưa tồn tại, mời thêm mới");
+                HeaderFooter.printHeader("Thêm khách hàng mới");
+                customerManager.add();
+                HeaderFooter.printFooter();
+                HeaderFooter.printHeader("Thông tin khách hàng mới");
+                customerManager.search(Customer.getLatestID()).display();
+                HeaderFooter.printFooter();
+            } else{
+                HeaderFooter.printHeader("Thông tin khách hàng");
+                customer.display();
+                HeaderFooter.printFooter();
+            }
+
+            Order newOrder = new Order();
+            newOrder.input();
+            newOrder.addProductListToOrder(currentProducts);
+            HeaderFooter.printHeader("Thông tin đơn hàng vừa đặt");
+            newOrder.display();
+            HeaderFooter.printFooter();
+            orderManager.add(newOrder);
         } else{
-            customer.display();
+            System.out.println("Chưa có sản phẩm nào được mua");
         }
-        Order newOrder = new Order();
-        newOrder.input();
-        newOrder.addProductListToOrder(currentProducts);
-        HeaderFooter.printHeader("TESTING");
-        newOrder.display();
-        HeaderFooter.printFooter();
-        orderManager.add(newOrder);
+
     }
 
     private void admin(){
@@ -65,8 +76,7 @@ public class Shop {
         boolean exit = false;
         do{
             System.out.println("1. Mua sản phẩm");
-            System.out.println("2. Tạo đơn hàng");
-            System.out.println("3. Admin");
+            System.out.println("2. Admin");
             System.out.println("exit. Thoát");
             String luachon = "";
             luachon = sc.nextLine();
@@ -75,9 +85,6 @@ public class Shop {
                     this.muaHang();
                     break;
                 case "2":
-                    this.taoDonHang();
-                    break;
-                case "3":
                     this.admin();
                     break;
                 case "exit":

@@ -41,7 +41,7 @@ public class Employee extends Person {
     }
 
     // Lấy ra ID của khách hàng mới nhất
-    public static String getNewestID(){
+    public static String getLatestID (){
         return String.format("NV-%05d", currentIDNumber);
     }
 

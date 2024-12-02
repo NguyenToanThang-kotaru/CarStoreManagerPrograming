@@ -28,7 +28,7 @@ public class Motorbike extends Product {
     }
     // Lấy ra ID của khách hàng mới nhất
 
-    public static String getNewestID() {
+    public static String getLatestID () {
         return String.format("M-%05d", currentIDNumber);
 
     }
