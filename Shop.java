@@ -11,7 +11,13 @@ public class Shop {
 
         if(currentProducts.getLength() > 0){
             System.out.print("Nhập số điện thoại: ");
-            String phone = sc.nextLine();
+            String check = sc.nextLine();
+            while (!Validation.isPhoneNumber(check)) {
+                System.out.println("Vui lòng nhập số điện thoại hợp lệ!");
+                System.out.print("Nhập số điện thoại: ");
+                check = sc.nextLine();
+            }
+            String phone = check;
             Customer customer = customerManager.searchByPhone(phone);
             if(customer == null){
                 System.out.println("Khách hàng chưa tồn tại, mời thêm mới");
@@ -67,7 +73,7 @@ public class Shop {
                     this.productManager.menu();
                     break;
                 case "4":
-                    // this.employeeManager.menu();
+                    this.employeeManager.menu();
                     break;
                 case "exit":
                     exit = true;

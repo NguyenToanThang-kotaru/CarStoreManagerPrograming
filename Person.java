@@ -67,7 +67,13 @@ public abstract class Person {
         System.out.print("Nhập địa chỉ: ");
         this.address = reader.nextLine();
         System.out.print("Nhâp số điện thoại: ");
-        this.phone = reader.nextLine();
+        String check=reader.nextLine();
+        while (!Validation.isPhoneNumber(check)) {
+            System.out.println("Vui lòng nhập số điện thoại hợp lệ!");
+            System.out.print("Nhập số điện thoại: ");
+            check = reader.nextLine();
+        }
+        this.phone = check;
         System.out.print("Nhập số tuổi: ");
         this.age = Short.parseShort(reader.nextLine());
 

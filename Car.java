@@ -44,9 +44,14 @@ public class Car extends Product {
     public void input() {
         super.input();
         System.out.print("Số chỗ: ");
-        seat = Byte.parseByte(sc.nextLine());
+        String check = sc.nextLine();
+        while (!Validation.isByte(check)) {
+            System.out.println("Vui lòng nhập số chỗ hợp lệ! \n");
+            System.out.print("Số chỗ: ");
+            check = sc.nextLine();
+        }
+        seat = Byte.parseByte(check);
         ID = generateNextID();
-
     }
     @Override
     public void display() {

@@ -44,7 +44,7 @@ public class EmployeeManager {
         }
     }
 
-    public void displayMenu() {
+    public void menu() {
         boolean exit = false;
         do {
             HeaderFooter.printHeader("Menu");
