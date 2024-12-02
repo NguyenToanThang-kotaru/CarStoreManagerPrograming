@@ -138,6 +138,7 @@ public class OrderList implements IDisplayable {
         return null;
     }
     public Order[] getOrders(){
-        return orders;
+        Order[] copyOrders = Arrays.copyOf(this.orders, this.length);
+        return copyOrders;
     }
 }

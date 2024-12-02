@@ -50,9 +50,7 @@ public class ProductList {
     }
     
     public void display() {
-        System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
-                "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
-        System.out.println(  "------------------------------------------------------------------------------------------------------------------------");
+        // HeaderFooter.printProductHeader("car");
         for (int i = 0; i < length; i++) {
             products[i].display();
         }
@@ -166,7 +164,8 @@ public class ProductList {
     }
 
     public Product[] getProducts() {
-        return this.products;
+        Product[] copyProducts = Arrays.copyOf(this.products, this.length);
+        return copyProducts;
     }
 
     // public void getList() {

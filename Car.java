@@ -71,8 +71,7 @@ public class Car extends Product {
         boolean exit = false;
         do {
             System.out.println("---Thông tin sản phẩm hiện tại---");
-            System.out.printf("%-10s | %-15s | %-13s | %-13s | %-17s | %-10s | %-10s | %-10s%n",
-                    "ID", "Hãng xe", "Tên xe", "Năm sản xuất", "Giá", "Màu", "Số lượng", "Số chỗ ngồi");
+            HeaderFooter.printProductHeader("car");
             System.out.println(
                     "------------------------------------------------------------------------------------------------------------------------");
             this.display();
