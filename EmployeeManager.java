@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class EmployeeManager {
     Scanner scanner = new Scanner(System.in);
-    private EmployeeList1 shopEmployee;
+    private EmployeeList shopEmployee;
 
     public EmployeeManager() {
-        shopEmployee = new EmployeeList1();
+        shopEmployee = new EmployeeList();
         this.readFromFile();
 
     }
