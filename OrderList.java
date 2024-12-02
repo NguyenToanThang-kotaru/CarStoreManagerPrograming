@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Scanner;
 // import java.io.FileReader;
 // import java.io.BufferedReader;
 // import java.io.FileWriter;
@@ -30,8 +30,9 @@ public class OrderList implements IDisplayable {
         }
     }
     public void display(){
+        System.out.printf("%-12s | %-13s | %-13s | %-13s |%-10s%n", "Mã đơn hàng", "Mã khách hàng", "Tổng đơn",
+                    "Ngày đặt hàng", "Trạng thái");
         for(int i=0; i<length; i++){
-            System.out.println("Order "+ i+1 + ":");
             orders[i].display();
         }
     }
@@ -56,7 +57,7 @@ public class OrderList implements IDisplayable {
         if(order != null){
             boolean exit = false;
             do{
-                System.out.println("---Thông tin đơn hàng hiện tại---");
+                HeaderFooter.printHeader("Thông tin đơn hàng hiện tại");
                 order.display();
                 System.out.println("1: Sửa ngày đặt hàng");
                 System.out.println("2: Sửa trạng thái đơn hàng");
