@@ -103,7 +103,7 @@ public class OrderList implements IDisplayable {
                 }
             } while(!exit);
         } else{
-            System.out.println("Không tìm thấy khách hàng!!!");
+            System.out.println("Không tìm thấy đơn hàng!!!");
         }
     }
     public void delete(){
@@ -132,11 +132,9 @@ public class OrderList implements IDisplayable {
     public Order search(String orderID){
         for(int i=0; i<length; i++){
             if(orders[i].getID().equalsIgnoreCase(orderID)){
-                System.out.println("Đã tìm thấy mã đơn hàng.");
                 return orders[i];
             }
         }
-        System.out.println("Không tìm thấy mã đơn hàng!");
         return null;
     }
     public Order[] getOrders(){

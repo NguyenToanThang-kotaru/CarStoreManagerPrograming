@@ -31,7 +31,7 @@ public class Car extends Product {
     }
     // Lấy ra ID của khách hàng mới nhất
 
-    public static String getNewestID() {
+    public static String getLatestID () {
         return String.format("C-%05d", currentIDNumber);
 
     }

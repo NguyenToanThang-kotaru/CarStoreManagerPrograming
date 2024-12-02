@@ -2049,7 +2049,7 @@
 											"top": 1596,
 											"width": 161.74169921875,
 											"height": 13,
-											"text": "+getNewestID()",
+											"text": "+getLatestID ()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2501,7 +2501,7 @@
 											"top": 1566,
 											"width": 161.74169921875,
 											"height": 13,
-											"text": "+getNewestID()",
+											"text": "+getLatestID ()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3614,7 +3614,7 @@
 											"width": 262.94873046875,
 											"height": 13,
 											"underline": true,
-											"text": "+getNewestID(): String",
+											"text": "+getLatestID (): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10124,7 +10124,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGTDj9Y567K+zA="
 							},
-							"name": "getNewestID"
+							"name": "getLatestID "
 						}
 					]
 				},
@@ -10251,7 +10251,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGTDkT6DLQapwo="
 							},
-							"name": "getNewestID"
+							"name": "getLatestID "
 						}
 					]
 				},
@@ -10776,7 +10776,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGTDmU88bVwxQY="
 							},
-							"name": "getNewestID",
+							"name": "getLatestID ",
 							"isStatic": true,
 							"parameters": [
 								{

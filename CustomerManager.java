@@ -36,7 +36,7 @@ public class CustomerManager {
                     HeaderFooter.printHeader("Thêm khách hàng");
                     shopCustomers.add();
                     HeaderFooter.printFooter();
-                    Customer newCustomer = shopCustomers.search(Customer.getNewestID());
+                    Customer newCustomer = shopCustomers.search(Customer.getLatestID ());
                     if(newCustomer != null){
                         HeaderFooter.printHeader("Khách hàng vừa thêm");
                         newCustomer.display();
@@ -114,5 +114,9 @@ public class CustomerManager {
 
     public void add(){
         shopCustomers.add();
+    }
+
+    public Customer search(String ID){
+        return shopCustomers.search(ID);
     }
 }

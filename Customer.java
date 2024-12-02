@@ -30,7 +30,7 @@ public class Customer extends Person {
     }
 
     // Lấy ra ID của khách hàng mới nhất
-    public static String getNewestID(){
+    public static String getLatestID (){
         return String.format("KH-%05d", currentIDNumber);
     }
 
