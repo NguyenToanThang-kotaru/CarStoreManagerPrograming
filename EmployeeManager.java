@@ -14,7 +14,7 @@ public class EmployeeManager {
 
     }
 
-    public void readFromFile("./employee.txt"){
+    public void readFromFile(){
         try {
             BufferedReader input = new BufferedReader(new FileReader("./database/employee.txt"));
             String line = input.readLine();
@@ -31,7 +31,7 @@ public class EmployeeManager {
         }            
     }
 
-    public void writeToFile("./employee.txt"){
+    public void writeToFile(""){
         Employee[] employees = shopEmployee.getEmployees();
         try {
             FileWriter fw = new FileWriter("./database/employee.txt");
