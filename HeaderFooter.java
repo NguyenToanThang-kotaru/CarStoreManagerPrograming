@@ -1,3 +1,5 @@
+import javax.sound.midi.SysexMessage;
+
 public final class HeaderFooter {
     private static String title;
 
@@ -6,12 +8,12 @@ public final class HeaderFooter {
     }
 
     public static void printHeader(String title) {
-        System.out.println("=========" + title + "=========");
+        System.out.println("===========================" + title + "===========================\n");
         HeaderFooter.title = title;
     }
 
     public static void printFooter() {
-        System.out.println("=========" + "=".repeat(HeaderFooter.title.length()) + "=========");
+        System.out.println("===========================" + "=".repeat(HeaderFooter.title.length()) + "===========================");
     }
 
     public static void printProductHeader(String type) {
@@ -28,5 +30,10 @@ public final class HeaderFooter {
 
     public static void printProductToSellHeader(){
 
+    }
+
+    public static void printCustomerHeader(){
+        System.out.printf("%-9s | %-31s | %-51s | %-10s | %-5s\n", "ID", "Họ tên", "Địa chỉ", "SĐT", "Tuổi");
+        System.out.println("-".repeat(118));
     }
 }
