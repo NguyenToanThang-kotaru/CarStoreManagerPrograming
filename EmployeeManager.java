@@ -1,8 +1,7 @@
-import java.util.Scanner;
-import java.io.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Scanner;
 
 public class EmployeeManager {
     Scanner scanner = new Scanner(System.in);
@@ -20,7 +19,7 @@ public class EmployeeManager {
             String line = input.readLine();
             while (line != null) {
                 String[] arr = line.split(",");
-               this.shopEmployee.add(new Employee(arr[1],arr[2],arr[3],arr[4],Short.parseShort(arr[5]),arr[6],arr[7]));
+               this.shopEmployee.add(new Employee(arr[1],arr[2],arr[3],arr[4],Short.parseShort(arr[5]),arr[6],arr[7],Long.parseLong(arr[8])));
                 Employee.increaseCurrentIDNumber();
                 line = input.readLine();
             }
