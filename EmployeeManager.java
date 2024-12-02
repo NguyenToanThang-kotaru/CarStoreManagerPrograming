@@ -31,7 +31,7 @@ public class EmployeeManager {
         }            
     }
 
-    public void writeToFile(""){
+    public void writeToFile(){
         Employee[] employees = shopEmployee.getEmployees();
         try {
             FileWriter fw = new FileWriter("./database/employee.txt");
