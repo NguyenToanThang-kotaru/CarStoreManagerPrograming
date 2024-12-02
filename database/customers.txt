@@ -1,2 +1,2 @@
 Customer,KH-00002,Thắng,Sao mộc,1231,23
-Order,OD-00006,toanthangne,0,3-12,Đang xử lýMotorbikeCarCustomer,KH-00002,Tín,Mặt trời,132,23
+Order,OD-00006,toanthangne,0,3-12,Đang xử lýMotorbikeCarCustomer
