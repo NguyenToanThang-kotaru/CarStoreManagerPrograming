@@ -1,5 +1,4 @@
 import java.text.NumberFormat;
-import java.text.NumberFormat;
 
 public class Motorbike extends Product {
     private short CC;
