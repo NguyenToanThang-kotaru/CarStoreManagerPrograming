@@ -147,6 +147,7 @@ public class CustomerManager {
                 Order[] orderHistory = customer.getOrderHistory();
                 for(Order order : orderHistory){
                     fw.write(order.toString());
+                    fw.write("\r\n");
                     Product[] orderedProducts = order.getOrderedProducts();
                     for(Product product : orderedProducts){
                         fw.write(product.toString());

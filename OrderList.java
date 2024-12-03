@@ -4,7 +4,7 @@ import java.util.Scanner;
 // import java.io.BufferedReader;
 // import java.io.FileWriter;
 
-public class OrderList implements IDisplayable {
+public class OrderList implements IDisplayable, IThemXoaSua {
     Scanner r = new Scanner(System.in);
     private Order orders[];
     private int length = 0;
