@@ -16,7 +16,6 @@ public class Validation {
         if (key == null || key.isEmpty()) {
             return false;
         }
-
         try {
             Short.parseShort(key);
             return true;

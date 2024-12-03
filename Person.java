@@ -75,8 +75,13 @@ public abstract class Person {
         }
         this.phone = check;
         System.out.print("Nhập số tuổi: ");
-        this.age = Short.parseShort(reader.nextLine());
-
+        check=reader.nextLine();
+        while (!Validation.isShort(check)) {
+            System.out.println("Vui lòng nhập số tuổi hợp lệ!");
+            System.out.print("Nhập số tuổi: ");
+            check = reader.nextLine();
+        }
+        this.age = Short.parseShort(check);
     }
 
     public void display() {

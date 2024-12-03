@@ -56,6 +56,7 @@ public class ProductManager {
                         HeaderFooter.printHeader("Tất cả sản phẩm của cửa hàng");
                         showProducts(shopProducts);
                         HeaderFooter.printFooter();
+                        System.out.println("Nhập số thứ tự sản phẩm cần mua: ");
                         String luachonSP = "";
                         luachonSP = sc.nextLine();
                         if (luachonSP.equalsIgnoreCase("exit")) {
@@ -65,7 +66,7 @@ public class ProductManager {
                             if (index >= 1 && index <= shopProducts.getLength()) {
                                 String xacnhan = "";
                                 do {
-                                    System.out.println("Y/N (Xác nhận/Huỷ bỏ)");
+                                    System.out.println("Y/N (Xác nhận mua hàng/Huỷ bỏ)");
                                     xacnhan = sc.nextLine();
                                 } while (!xacnhan.equalsIgnoreCase("Y") && !xacnhan.equalsIgnoreCase("N"));
                                 if (xacnhan.equalsIgnoreCase("Y")) {

@@ -60,6 +60,7 @@ public class Shop {
             System.out.println("3. Quản lý sản phẩm");
             System.out.println("4. Quản lý nhân viên");
             System.out.println("exit. Thoát");
+            System.out.print("Nhập lựa chọn: ");
             String luachon = "";
             luachon = sc.nextLine();
             switch (luachon) {

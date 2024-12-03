@@ -44,3 +44,4 @@ Motorbike,M-00018,Honda,SH150i,2021-08-20,700000000,Bạc,0,2
 Motorbike,M-00019,yamaha,NMAX 155,2023-02-18,170000000,Vàng,8,2
 Car,C-00025,Honda,Inova,2020,900000000,Xám,19,10
 Motorbike,M-00019,Kawasaki,Ninja Warrior,2016,400000000,Xanh lá cây,9,500
+Car,C-00026,Lesux,CX-300,2021,3000000000,Xám,30,7
