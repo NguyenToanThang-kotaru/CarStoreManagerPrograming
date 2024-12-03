@@ -73,7 +73,6 @@ public abstract class Product {
             check = sc.nextLine();
         }
         quantity = Integer.parseInt(check);
-
     }
 // ---------------------------------------------Get
     public String getID() {

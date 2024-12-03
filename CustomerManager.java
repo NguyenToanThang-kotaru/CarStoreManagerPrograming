@@ -108,7 +108,6 @@ public class CustomerManager {
                 } else
                 if(arr[0].equals("Order")){
                     if(currentOrder != null){
-                        currentOrder.display();
                         currentOrderHistory.add(currentOrder);
                     }
                     currentOrder = new Order(arr[1], arr[2], Long.parseLong(arr[3]), arr[4], arr[5]);
