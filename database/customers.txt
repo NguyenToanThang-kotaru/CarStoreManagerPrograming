@@ -1,2 +1,0 @@
-Customer,KH-00001,Nhat,o dau,11111,1
-Order,OD-00006,KH-00000,0,2020404204,Đang xử lýCarOrderCar,C-00003,BMW,X5,2023-03-12,1600000000,Đỏ,1,4

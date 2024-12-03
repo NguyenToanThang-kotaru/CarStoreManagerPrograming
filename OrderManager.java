@@ -1,4 +1,4 @@
-import java.io.BufferedReader;
+   import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
@@ -107,9 +107,5 @@ public class OrderManager {
 
     public void add(Order order){
         shopOrders.add(order);
-    }
-    public static void main(String[] args) {
-        OrderManager om = new OrderManager();
-        om.menu();
     }
 }

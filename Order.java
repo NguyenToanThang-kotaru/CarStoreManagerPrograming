@@ -68,7 +68,7 @@ public class Order implements IDisplayable {
         numberFormat.setGroupingUsed(true); // Bật tính năng nhóm số
         // Hiển thị thông tin sản phẩm với giá được định dạng
         System.out.printf("%-12s | %-13s | %-13s | %-13s | %-10s%n",
-        ID, customerID, numberFormat.format(totalPrice), orderDate, status);
+        ID, customerID, numberFormat.format(getTotalPrice()), orderDate, status);
         System.out.println("---------------------------------------------------------------------------------------------------");
         HeaderFooter.printHeader("Danh sách sản phẩm đã đặt:");
         if(orderedProducts != null)

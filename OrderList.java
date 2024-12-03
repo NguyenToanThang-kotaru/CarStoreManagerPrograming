@@ -30,9 +30,9 @@ public class OrderList implements IDisplayable {
         }
     }
     public void display(){
-        System.out.printf("%-12s | %-13s | %-13s | %-13s |%-10s%n", "Mã đơn hàng", "Mã khách hàng", "Tổng đơn",
-                    "Ngày đặt hàng", "Trạng thái");
-        for(int i=0; i<length; i++){
+        for(int i=0; i<length; i++){  
+            System.out.printf("%-12s | %-13s | %-13s | %-13s |%-10s%n", "Mã đơn hàng", "Mã khách hàng", "Tổng đơn",
+            "Ngày đặt hàng", "Trạng thái");
             orders[i].display();
         }
     }
