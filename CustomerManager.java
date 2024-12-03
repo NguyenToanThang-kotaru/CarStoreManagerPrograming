@@ -48,7 +48,7 @@ public class CustomerManager {
                     HeaderFooter.printHeader("Thêm khách hàng");
                     shopCustomers.add();
                     HeaderFooter.printFooter();
-                    Customer newCustomer = shopCustomers.search(Customer.getLatestID ());
+                    Customer newCustomer = shopCustomers.search(Customer.getLatestID());
                     if(newCustomer != null){
                         HeaderFooter.printHeader("Khách hàng vừa thêm");
                         newCustomer.display();
@@ -99,8 +99,10 @@ public class CustomerManager {
             while (line != null) {
                 String[] arr = line.split(",");
                 if(arr[0].equals("Customer")){
-                    if(currentOrderHistory != null){
+                    if(currentCustomer != null){
+                        currentOrderHistory.add(currentOrder);
                         currentCustomer.addOrdersToOrderHistory(currentOrderHistory);
+                        shopCustomers.add(currentCustomer);
                     }
                     currentCustomer = new Customer(arr[1], arr[2], arr[3], arr[4], Short.parseShort(arr[5]));
                     currentOrderHistory = new OrderList();
@@ -121,9 +123,14 @@ public class CustomerManager {
 
                 line = input.readLine();
             }
-            currentOrderHistory.add(currentOrder);
-            currentCustomer.addOrdersToOrderHistory(currentOrderHistory);
-            shopCustomers.add(currentCustomer);
+            if(currentOrder != null){
+                currentOrderHistory.add(currentOrder);
+            }
+
+            if(currentCustomer != null){
+                currentCustomer.addOrdersToOrderHistory(currentOrderHistory);
+                shopCustomers.add(currentCustomer);
+            }
             input.close();
         } catch (Exception ex) {
             ex.printStackTrace();
