@@ -56,8 +56,12 @@ public class Order implements IDisplayable {
         ID = generateNextID();
         System.out.print("Nhập mã khách hàng: ");
         customerID = r.nextLine();
-        System.out.print("Nhập ngày đặt: ");
+        System.out.print("Nhập ngày đặt hàng (Ngày/Tháng/Năm): ");
         orderDate = r.nextLine();
+        while(!Validation.isDate(orderDate)){
+            System.out.print("Nhập lại ngày đặt hàng (Ngày/Tháng/Năm): ");
+            orderDate = r.nextLine();
+        }
     }
     public void display(){
         NumberFormat numberFormat = NumberFormat.getInstance(); // Tạo đối tượng NumberFormat
