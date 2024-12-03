@@ -19,20 +19,24 @@ public class ProductManager {
         System.out.printf("%-6s", "STT");
         HeaderFooter.printProductHeader("car");
         for(Product product : products){
-            if(product instanceof Car){
-                System.out.printf("%-6s", stt + ".");
-                product.display();
-                stt++;
+            if(product.getQuantity() > 0){
+                if(product instanceof Car){
+                    System.out.printf("%-6s", stt + ".");
+                    product.display();
+                    stt++;
+                }
             }
         }
         HeaderFooter.printHeader("Motorbike");
         System.out.printf("%-5s", "STT");
         HeaderFooter.printProductHeader("motorbike");
         for(Product product : products){
-            if(product instanceof Motorbike){
-                System.out.printf("%-6s", stt + ".");
-                product.display();
-                stt++;
+            if(product.getQuantity() > 0){
+                if(product instanceof Motorbike){
+                    System.out.printf("%-6s", stt + ".");
+                    product.display();
+                    stt++;
+                }
             }
         }
 

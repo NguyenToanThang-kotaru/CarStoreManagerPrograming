@@ -106,7 +106,7 @@ public class Shop {
                     this.customerManager.writeToFile();
                     this.orderManager.writeToFile();
                     this.productManager.writeToFile();
-                    // this.employeeManager.writeToFile();
+                    this.employeeManager.writeToFile();
                     break;
                 default:
                     System.out.println("Lựa chọn không hợp lệ");
