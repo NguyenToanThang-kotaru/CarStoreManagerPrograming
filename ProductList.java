@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ProductList {
+public class ProductList implements IDisplayable{
     Scanner sc = new Scanner(System.in);
     private Product[] products;
     private int length;

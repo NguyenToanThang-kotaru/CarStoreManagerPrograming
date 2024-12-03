@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class EmployeeList {
+public class EmployeeList implements IDisplayable{
     Scanner scanner=new Scanner(System.in);
     private int length;
     private Employee[] employees;
