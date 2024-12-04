@@ -146,4 +146,12 @@ public class OrderList implements IDisplayable, IThemXoaSua {
         Order[] copyOrders = Arrays.copyOf(this.orders, this.length);
         return copyOrders;
     }
+
+    public void displayCustomerOrderHistory(String ID){
+        for(Order order : orders){
+            if(order.getCustomerID().equals(ID)){
+                order.display();
+            }
+        }
+    }
 }

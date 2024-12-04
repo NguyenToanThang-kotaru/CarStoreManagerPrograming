@@ -207,6 +207,9 @@ public class ProductList implements IDisplayable, IThemXoaSua{
         for(int i = 0; i < length; i++){
             if(Id.equals(products[i].getID())){
                 products[i].quantity--;
+                if(products[i].quantity == 0){
+                    this.delete(products[i].ID);
+                }
                 break;
             }
         }

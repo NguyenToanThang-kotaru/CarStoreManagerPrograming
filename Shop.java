@@ -45,7 +45,6 @@ public class Shop {
             HeaderFooter.printFooter();
             
             orderManager.add(newOrder);
-            customerManager.addOrderToOrderHistoryOfCustomer(customer.getID(), newOrder);
         } else{
             System.out.println("Chưa có sản phẩm nào được mua");
         }

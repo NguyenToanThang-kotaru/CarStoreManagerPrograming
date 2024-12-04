@@ -17,9 +17,10 @@ public class OrderManager {
         do{
             HeaderFooter.printHeader("Menu");
             System.out.println("1: Xem đơn hàng");
-            System.out.println("2: Sửa thông tin đơn hàng");
-            System.out.println("3: Xoá đơn hàng");
-            System.out.println("4: Tìm đơn hàng");
+            System.out.println("2: Xem lịch sử mua hàng của khách hàng");
+            System.out.println("3: Sửa thông tin đơn hàng");
+            System.out.println("4: Xoá đơn hàng");
+            System.out.println("5: Tìm đơn hàng");
             System.out.println("exit: Thoát");
             String select = "";
             System.out.print("Nhập lựa chọn: ");
@@ -31,16 +32,23 @@ public class OrderManager {
                     HeaderFooter.printFooter();
                     break;
                 case "2":
+                    HeaderFooter.printHeader("Lịch sử mua hàng của khách hàng");
+                    System.out.print("Nhập ID khách hàng: ");
+                    String key = r.nextLine();
+                    shopOrders.displayCustomerOrderHistory(key);
+                    HeaderFooter.printFooter();
+                    break;
+                case "3":
                     HeaderFooter.printHeader("Sửa đơn hàng");
                     shopOrders.edit();
                     HeaderFooter.printFooter();
                     break;
-                case "3":
+                case "4":
                     HeaderFooter.printHeader("Xoá đơn hàng");
                     shopOrders.delete();
                     HeaderFooter.printFooter();
                     break;
-                case "4":
+                case "5":
                     HeaderFooter.printHeader("Tìm kiếm đơn hàng");
                     Order order = shopOrders.search();
                     if(order != null){
@@ -52,7 +60,6 @@ public class OrderManager {
                     break;
                 case "exit":
                     exit = true;
-                    this.writeToFile();
                     break;
                 default:
                     System.out.println("!------Lỗi------!");

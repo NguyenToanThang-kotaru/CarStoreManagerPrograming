@@ -32,15 +32,12 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    // Tạo ra ID mới, format:
-    // flag 0 (đệm thêm '0' cho đủ chiều rộng),
-    // width 5 (chiều rộng tối thiểu), nếu ko đủ, kết hợp với flag 0 ở trên đệm thêm '0'
-    // conversion d, thể hiện số nguyên
+    // Tạo ID mới cho nhân viên
     private static String generateNextID(){
         return String.format("NV-%05d", ++currentIDNumber);
     }
 
-    // Lấy ra ID của khách hàng mới nhất
+    // Lấy ID của nhân viên mới nhất
     public static String getLatestID (){
         return String.format("NV-%05d", currentIDNumber);
     }

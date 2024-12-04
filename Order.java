@@ -35,15 +35,12 @@ public class Order implements IDisplayable {
         this.status = order.status;
         this.orderedProducts = order.orderedProducts;
     }
-    // Tạo ra ID mới, format:
-    // flag 0 (đệm thêm '0' cho đủ chiều rộng),
-    // width 5 (chiều rộng tối thiểu), nếu ko đủ, kết hợp với flag 0 ở trên đệm thêm '0'
-    // conversion d, thể hiện số nguyên
+    // Tạo ra ID đơn hàng mới
     private static String generateNextID(){
         return String.format("OD-%05d", ++currentIDNumber);
     }
 
-    // Lấy ra ID của khách hàng mới nhất
+    // Lấy ID của đơn hàng mới nhất
     public static String getLatestID (){
         return String.format("OD-%05d", currentIDNumber);
     }
@@ -104,7 +101,7 @@ public class Order implements IDisplayable {
         long sum = 0;
         for(int j = 0; j < orderedProducts.getLength(); j++){
             Product product = orderedProducts.getProducts()[j];
-            sum += product.getPrice();
+            sum += (product.getPrice() * product.getQuantity());
         }
 
         return sum;
@@ -113,33 +110,6 @@ public class Order implements IDisplayable {
         totalPrice = calculateTotalePrice();
         return totalPrice;
     }
-    // public void addProductToOrder(){
-    //     Product x = null;
-    //     boolean isTypedTrue = false;
-    //     do{
-    //         System.out.println("Loại xe:");
-    //         System.out.println("1. Xe máy");
-    //         System.out.println("2. Xe hơi");
-    //         System.out.println("Nhập số: ");
-    //         byte type = r.nextByte();
-    //         switch (type) {
-    //             case 1:
-    //                 x = new Motorbike();
-    //                 isTypedTrue = true;
-    //                 break;
-    //             case 2:
-    //                 x = new Car();
-    //                 isTypedTrue = true;
-    //                 break;
-    //             default:
-    //             System.out.println("Không thể tìm thấy!");
-    //             System.out.println("Vui lòng nhập lại");
-    //                 break;
-    //         }
-
-    //     }while(isTypedTrue == true);
-    //     addProductToOrder(x);
-    // }
 
     public void addProductToOrder(Product x){
         orderedProducts.add(x);

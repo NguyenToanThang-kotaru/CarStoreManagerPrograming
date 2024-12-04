@@ -90,7 +90,6 @@ public class EmployeeManager {
                     break;
                 case "exit":
                     exit = true;
-                    this.writeToFile();
                     break;
                 default:
                     System.out.println("!------Lỗi------!");

@@ -22,14 +22,13 @@ public class Motorbike extends Product {
         this.CC = x.CC;
     }
 
+    // Tạo ID mới cho motorbike
     private static String generateNextID() {
         return String.format("M-%05d", ++currentIDNumber);
     }
-    // Lấy ra ID của khách hàng mới nhất
-
+    // Lấy ID của motorbike mới nhất được thêm
     public static String getLatestID() {
         return String.format("M-%05d", currentIDNumber);
-
     }
 
     // Tăng số ID, sử dụng khi đọc file, khi khởi động chương trình

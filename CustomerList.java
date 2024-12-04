@@ -162,15 +162,6 @@ public class CustomerList implements IDisplayable, IThemXoaSua{
         return length;
     }
 
-    public void addOrderToOrderHistoryOfCustomer(String ID, Order order){
-        for(Customer customer : customers){
-            if(customer.getID().equals(ID)){
-                customer.addOrderToOrderHistory(order);
-                break;
-            }
-        }
-    }
-
     public Customer[] getCustomers(){
         Customer[] copyCustomers = Arrays.copyOf(this.customers, this.length);
         return copyCustomers;

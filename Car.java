@@ -21,16 +21,12 @@ public class Car extends Product {
         this.seat = x.seat;
     }
 
-    // Tạo ra ID mới, format:
-    // flag 0 (đệm thêm '0' cho đủ chiều rộng),
-    // width 5 (chiều rộng tối thiểu), nếu ko đủ, kết hợp với flag 0 ở trên đệm thêm
-    // '0'
-    // conversion d, thể hiện số nguyên
+    // Tạo ID mới cho car
     private static String generateNextID() {
         return String.format("C-%05d", ++currentIDNumber);
     }
-    // Lấy ra ID của khách hàng mới nhất
 
+    // Lấy ID của car mới nhất được thêm
     public static String getLatestID () {
         return String.format("C-%05d", currentIDNumber);
 
